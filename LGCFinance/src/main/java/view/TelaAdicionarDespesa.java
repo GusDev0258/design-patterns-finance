@@ -6,14 +6,14 @@ package view;
 
 /**
  *
- * @author gustavoavelar
+ * @author sonho
  */
-public class TelaInicio extends javax.swing.JFrame {
+public class TelaAdicionarDespesa extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaInicio
+     * Creates new form TelaAdicionarDespesa
      */
-    public TelaInicio() {
+    public TelaAdicionarDespesa() {
         initComponents();
     }
 
@@ -26,49 +26,47 @@ public class TelaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAddExpenditure = new javax.swing.JButton();
-        btnAddIncome = new javax.swing.JButton();
-        lbBalance = new javax.swing.JLabel();
-        lbCurrentBalance = new javax.swing.JLabel();
+        txtExpenditure = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnAdd = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAddExpenditure.setText("Adicionar Despesa");
+        txtExpenditure.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
-        btnAddIncome.setText("Adicionar Ganho");
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Adicionar despesa");
 
-        lbBalance.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lbBalance.setText("Saldo:");
-
-        lbCurrentBalance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAdd.setText("ADICIONAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(190, 190, 190)
+                .addGap(81, 81, 81)
+                .addComponent(txtExpenditure, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 86, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lbBalance)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lbCurrentBalance))
-                    .addComponent(btnAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddExpenditure))
-                .addContainerGap(202, Short.MAX_VALUE))
+                        .addGap(134, 134, 134)
+                        .addComponent(btnAdd))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbBalance)
-                    .addComponent(lbCurrentBalance))
-                .addGap(47, 47, 47)
-                .addComponent(btnAddExpenditure)
+                .addGap(65, 65, 65)
+                .addComponent(jLabel1)
+                .addGap(26, 26, 26)
+                .addComponent(txtExpenditure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAddIncome)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addComponent(btnAdd)
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,28 +89,27 @@ public class TelaInicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAdicionarDespesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAdicionarDespesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAdicionarDespesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaAdicionarDespesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicio().setVisible(true);
+                new TelaAdicionarDespesa().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddExpenditure;
-    private javax.swing.JButton btnAddIncome;
-    private javax.swing.JLabel lbBalance;
-    private javax.swing.JLabel lbCurrentBalance;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtExpenditure;
     // End of variables declaration//GEN-END:variables
 }
