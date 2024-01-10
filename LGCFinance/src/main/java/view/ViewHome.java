@@ -8,12 +8,12 @@ package view;
  *
  * @author gustavoavelar
  */
-public class TelaInicio extends javax.swing.JFrame {
+public class ViewHome extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaInicio
      */
-    public TelaInicio() {
+    public ViewHome() {
         initComponents();
     }
 
@@ -30,6 +30,7 @@ public class TelaInicio extends javax.swing.JFrame {
         btnAddIncome = new javax.swing.JButton();
         lbBalance = new javax.swing.JLabel();
         lbCurrentBalance = new javax.swing.JLabel();
+        btnHistory = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,34 +42,40 @@ public class TelaInicio extends javax.swing.JFrame {
         lbBalance.setText("Saldo:");
 
         lbCurrentBalance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lbCurrentBalance.setText("R$1900");
+
+        btnHistory.setText("Histórico");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(190, 190, 190)
+                .addGap(149, 149, 149)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbBalance)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbCurrentBalance))
                     .addComponent(btnAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddExpenditure))
-                .addContainerGap(202, Short.MAX_VALUE))
+                    .addComponent(btnAddExpenditure)
+                    .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(82, 82, 82)
+                .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbBalance)
                     .addComponent(lbCurrentBalance))
-                .addGap(47, 47, 47)
+                .addGap(44, 44, 44)
                 .addComponent(btnAddExpenditure)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddIncome)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnHistory)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,20 +98,21 @@ public class TelaInicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewHome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaInicio().setVisible(true);
+                new ViewHome().setVisible(true);
             }
         });
     }
@@ -112,6 +120,7 @@ public class TelaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddExpenditure;
     private javax.swing.JButton btnAddIncome;
+    private javax.swing.JButton btnHistory;
     private javax.swing.JLabel lbBalance;
     private javax.swing.JLabel lbCurrentBalance;
     // End of variables declaration//GEN-END:variables
