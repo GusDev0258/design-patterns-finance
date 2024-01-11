@@ -5,15 +5,18 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JButton;
 import view.interfaces.ViewInterface;
+import view.interfaces.BalanceObserver;
 
 /**
  *
  * @author gustavoavelar
  */
-public class HomeView extends javax.swing.JFrame implements ViewInterface {
-
+public class HomeView extends javax.swing.JFrame implements ViewInterface, BalanceObserver {
+    private List<BalanceObserver> observerList = new ArrayList<>();
     /**
      * Creates new form TelaInicio
      */
@@ -116,4 +119,20 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface {
     private javax.swing.JLabel lbBalance;
     private javax.swing.JLabel lbCurrentBalance;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void updateBalance(Double amount) {
+       String amountStr = amount.toString();
+       this.lbCurrentBalance.setText("R$" + amountStr);
+    }
+
+    @Override
+    public void addObserver(BalanceObserver observer) {
+        observerList.add(observer);
+    }
+
+    @Override
+    public void removeObserver(BalanceObserver observer) {
+        observerList.remove(observer);
+    }
 }
