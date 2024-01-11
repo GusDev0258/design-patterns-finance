@@ -12,13 +12,24 @@ import java.sql.SQLException;
  *
  * @author gustavoavelar
  */
-public class DataBase {
+public final class DataBase {
     private Connection connection = null;
+    private static final DataBase instance = new DataBase();
     
-    private void InitConnection(String url, String username, String password) throws SQLException{
-        this.connection = DriverManager.getConnection(url, username, password);
+    private DataBase(){}
+    
+    private static DataBase getInstance() { 
+        return instance;
     }
-    private void CloseConnection() throws Exception{
+    
+    private void initConnection(String url, String username, String password) throws SQLException, Exception{
+        if(this.connection == null) {
+            this.connection = DriverManager.getConnection(url, username, password);
+        }
+        throw new Exception("You are already connected, close your connection before starting a new one");
+    }
+    
+    private void closeConnection() throws Exception{
         if(this.connection == null) {
             throw new Exception("A connection must be start before ending");
         }
