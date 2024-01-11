@@ -4,6 +4,12 @@
 
 package com.lgc.lgcfinance;
 
+import controller.ExpenditureController;
+import controller.HistoryController;
+import controller.HomeController;
+import controller.IncomeController;
+import controller.interfaces.ControllerInterface;
+
 /**
  *
  * @author gustavoavelar
@@ -11,6 +17,10 @@ package com.lgc.lgcfinance;
 public class LGCFinance {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        ControllerInterface incomeController = new IncomeController();
+        ControllerInterface historyController = new HistoryController();
+        ControllerInterface expenditureController = new ExpenditureController();
+        ControllerInterface homeController = new HomeController(incomeController, historyController, expenditureController);
+        homeController.openView();
     }
 }

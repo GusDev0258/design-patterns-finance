@@ -19,6 +19,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface {
      */
     public HomeView() {
         initComponents();
+        this.setTitle("LGC Finance");
     }
     
     @Override
@@ -37,8 +38,9 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface {
     public JButton getBtnHistory() {
         return this.btnHistory;
     }
+    
     @Override
-    public void show() {
+    public void showView() {
         this.setVisible(true);
     }
     
@@ -77,14 +79,14 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(149, 149, 149)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbBalance)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbCurrentBalance))
-                    .addComponent(btnAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddExpenditure)
-                    .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAddIncome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAddExpenditure, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

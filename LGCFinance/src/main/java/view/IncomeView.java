@@ -4,16 +4,20 @@
  */
 package view;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import view.interfaces.ViewInterface;
+
 /**
  *
  * @author sonho
  */
-public class AddExpenditureView extends javax.swing.JFrame {
+public class IncomeView extends javax.swing.JFrame implements ViewInterface{
 
     /**
      * Creates new form TelaAdicionarDespesa
      */
-    public AddExpenditureView() {
+    public IncomeView() {
         initComponents();
     }
 
@@ -47,10 +51,10 @@ public class AddExpenditureView extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Adicionar despesa");
+        jLabel1.setText("Adicionar ganho");
 
         btnAdd.setText("ADICIONAR");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -83,30 +87,31 @@ public class AddExpenditureView extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(117, 117, 117))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jScrollPane1)
-                    .addComponent(txtExpenditure5)
-                    .addComponent(txtExpenditure4)
-                    .addComponent(txtExpenditure3)
-                    .addComponent(txtExpenditure1)
-                    .addComponent(txtExpenditure)
-                    .addComponent(txtExpenditure2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jScrollPane1)
+                            .addComponent(txtExpenditure5)
+                            .addComponent(txtExpenditure4)
+                            .addComponent(txtExpenditure3)
+                            .addComponent(txtExpenditure1)
+                            .addComponent(txtExpenditure)
+                            .addComponent(txtExpenditure2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel1)))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,9 +146,9 @@ public class AddExpenditureView extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btnAdd)
-                .addGap(18, 18, 18))
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -174,4 +179,14 @@ public class AddExpenditureView extends javax.swing.JFrame {
     private javax.swing.JTextField txtExpenditure4;
     private javax.swing.JTextField txtExpenditure5;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void addBtnAction(JButton btn, ActionListener action) {
+        btn.addActionListener(action);
+    }
+
+    @Override
+    public void showView() {
+        this.setVisible(true);
+    }
 }

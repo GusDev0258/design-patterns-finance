@@ -4,22 +4,48 @@
  */
 package controller;
 
+import controller.interfaces.ControllerInterface;
 import view.HomeView;
-import view.interfaces.ViewInterface;
 
 /**
  *
  * @author sonho
  */
-public class HomeController {
-    ViewInterface homeView;
+public class HomeController implements ControllerInterface{
+    HomeView homeView;
+    ControllerInterface incomeController; 
+    ControllerInterface historyController; 
+    ControllerInterface expenditureController;
     
-    public HomeController() {
-        if(homeView == null) {
-            homeView = new HomeView();
-        }
+    
+    public HomeController(ControllerInterface incomeController, ControllerInterface historyController, ControllerInterface expenditureController) {
+        this.homeView = new HomeView();
+        this.incomeController = incomeController;
+        this.historyController = historyController;
+        this.expenditureController = expenditureController;
+        this.initHomeButtons();
     }
+    
+    @Override
     public void openView() {
-        this.homeView.show();
+        this.homeView.showView();
+    }
+    
+    public void openIncomeView() {
+        this.homeView.addBtnAction(this.homeView.getBtnIncome(),e -> this.incomeController.openView());
+    }
+    
+    public void openHistoryView() {
+        this.homeView.addBtnAction(this.homeView.getBtnHistory(), e -> this.historyController.openView());
+    }
+    
+    public void openExpenditureView() {
+        this.homeView.addBtnAction(this.homeView.getBtnExpenditure(), e -> this.expenditureController.openView());
+    }
+    
+    public void initHomeButtons() {
+        this.openIncomeView();
+        this.openHistoryView();
+        this.openExpenditureView();
     }
 }
