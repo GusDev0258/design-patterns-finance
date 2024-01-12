@@ -15,8 +15,7 @@ import view.interfaces.BalanceObserver;
  *
  * @author gustavoavelar
  */
-public class HomeView extends javax.swing.JFrame implements ViewInterface, BalanceObserver {
-    private List<BalanceObserver> observerList = new ArrayList<>();
+public class HomeView extends javax.swing.JFrame implements ViewInterface{
     /**
      * Creates new form TelaInicio
      */
@@ -120,19 +119,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Balan
     private javax.swing.JLabel lbCurrentBalance;
     // End of variables declaration//GEN-END:variables
 
-    @Override
     public void updateBalance(Double amount) {
-       String amountStr = amount.toString();
-       this.lbCurrentBalance.setText("R$" + amountStr);
-    }
-
-    @Override
-    public void addObserver(BalanceObserver observer) {
-        observerList.add(observer);
-    }
-
-    @Override
-    public void removeObserver(BalanceObserver observer) {
-        observerList.remove(observer);
+        this.lbBalance.setText(amount.toString());
     }
 }

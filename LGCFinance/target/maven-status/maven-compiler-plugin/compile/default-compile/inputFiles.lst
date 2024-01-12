@@ -3,6 +3,7 @@ C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCF
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\HistoryView.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\interfaces\ViewInterface.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\model\PaymentType.java
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\interfaces\BalanceObserver.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\ExpenditureController.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\IncomeController.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\data\DataBase.java

@@ -14,5 +14,6 @@ controller\ExpenditureController.class
 controller\IncomeController.class
 model\Category.class
 data\DataBase.class
+view\interfaces\BalanceObserver.class
 com\lgc\lgcfinance\LGCFinance.class
 view\HomeView.class
