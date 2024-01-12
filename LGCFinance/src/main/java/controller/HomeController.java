@@ -5,6 +5,7 @@
 package controller;
 
 import controller.interfaces.ControllerInterface;
+import model.Author;
 import view.HomeView;
 
 /**
@@ -18,11 +19,14 @@ public class HomeController implements ControllerInterface{
     ControllerInterface expenditureController;
     
     
-    public HomeController(ControllerInterface incomeController, ControllerInterface historyController, ControllerInterface expenditureController) {
+    public HomeController(ControllerInterface incomeController, ControllerInterface historyController, ControllerInterface expenditureController, Author author) {
         this.homeView = new HomeView();
         this.incomeController = incomeController;
         this.historyController = historyController;
         this.expenditureController = expenditureController;
+        
+        author.addObserver(homeView);
+        
         this.initHomeButtons();
     }
     

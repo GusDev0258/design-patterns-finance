@@ -9,6 +9,7 @@ import controller.HistoryController;
 import controller.HomeController;
 import controller.IncomeController;
 import controller.interfaces.ControllerInterface;
+import model.Author;
 
 /**
  *
@@ -17,10 +18,11 @@ import controller.interfaces.ControllerInterface;
 public class LGCFinance {
 
     public static void main(String[] args) {
+        Author autor = new Author();
         ControllerInterface incomeController = new IncomeController();
         ControllerInterface historyController = new HistoryController();
         ControllerInterface expenditureController = new ExpenditureController();
-        ControllerInterface homeController = new HomeController(incomeController, historyController, expenditureController);
+        ControllerInterface homeController = new HomeController(incomeController, historyController, expenditureController, autor);
         homeController.openView();
     }
 }

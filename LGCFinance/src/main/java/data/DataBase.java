@@ -18,21 +18,24 @@ public final class DataBase {
     
     private DataBase(){}
     
-    private static DataBase getInstance() { 
+    public static DataBase getInstance() { 
         return instance;
     }
     
-    private void initConnection(String url, String username, String password) throws SQLException, Exception{
+    public void initConnection(String url, String username, String password) throws SQLException, Exception{
         if(this.connection == null) {
             this.connection = DriverManager.getConnection(url, username, password);
+        }else{
+            throw new Exception("You are already connected, close your connection before starting a new one");
         }
-        throw new Exception("You are already connected, close your connection before starting a new one");
     }
     
-    private void closeConnection() throws Exception{
-        if(this.connection == null) {
-            throw new Exception("A connection must be start before ending");
+    public void closeConnection() throws Exception {
+        if (this.connection != null) {
+            this.connection.close();
+            this.connection = null;
+        } else {
+            throw new Exception("A connection must be started before ending");
         }
-        this.connection.close();
     }
 }

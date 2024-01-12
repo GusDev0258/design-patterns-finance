@@ -10,6 +10,4 @@ package view.interfaces;
  */
 public interface BalanceObserver {
     public void updateBalance(Double amount);
-    public void addObserver(BalanceObserver observer);
-    public void removeObserver(BalanceObserver observer);
 }

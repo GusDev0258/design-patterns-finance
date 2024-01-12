@@ -31,23 +31,23 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
-        txtExpenditure = new javax.swing.JTextField();
+        txtValue = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        btnAdd = new javax.swing.JButton();
+        btnAddIncome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtExpenditure1 = new javax.swing.JTextField();
+        txtCategory = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtExpenditure2 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtExpenditure3 = new javax.swing.JTextField();
+        txtDate = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtExpenditure4 = new javax.swing.JTextField();
+        txtOrigin = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtExpenditure5 = new javax.swing.JTextField();
+        txtAuthor = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        taDescription = new javax.swing.JTextArea();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -56,10 +56,10 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Adicionar ganho");
 
-        btnAdd.setText("ADICIONAR");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+        btnAddIncome.setText("ADICIONAR");
+        btnAddIncome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
+                btnAddIncomeActionPerformed(evt);
             }
         });
 
@@ -73,13 +73,19 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
 
         jLabel6.setText("Origem");
 
+        txtOrigin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtOriginActionPerformed(evt);
+            }
+        });
+
         jLabel7.setText("Autor");
 
         jLabel8.setText("Descrição");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        taDescription.setColumns(20);
+        taDescription.setRows(5);
+        jScrollPane1.setViewportView(taDescription);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,7 +93,7 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,12 +108,12 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jScrollPane1)
-                            .addComponent(txtExpenditure5)
-                            .addComponent(txtExpenditure4)
-                            .addComponent(txtExpenditure3)
-                            .addComponent(txtExpenditure1)
-                            .addComponent(txtExpenditure)
-                            .addComponent(txtExpenditure2, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtAuthor)
+                            .addComponent(txtOrigin)
+                            .addComponent(txtDate)
+                            .addComponent(txtCategory)
+                            .addComponent(txtValue)
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(122, 122, 122)
                         .addComponent(jLabel1)))
@@ -121,46 +127,50 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtExpenditure2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtExpenditure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtExpenditure1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtExpenditure3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtExpenditure4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtExpenditure5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(btnAdd)
+                .addComponent(btnAddIncome)
                 .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+    private void btnAddIncomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddIncomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddActionPerformed
+    }//GEN-LAST:event_btnAddIncomeActionPerformed
+
+    private void txtOriginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtOriginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtOriginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnAddIncome;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -171,13 +181,13 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField txtExpenditure;
-    private javax.swing.JTextField txtExpenditure1;
-    private javax.swing.JTextField txtExpenditure2;
-    private javax.swing.JTextField txtExpenditure3;
-    private javax.swing.JTextField txtExpenditure4;
-    private javax.swing.JTextField txtExpenditure5;
+    private javax.swing.JTextArea taDescription;
+    private javax.swing.JTextField txtAuthor;
+    private javax.swing.JTextField txtCategory;
+    private javax.swing.JTextField txtDate;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtOrigin;
+    private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -189,4 +199,5 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     public void showView() {
         this.setVisible(true);
     }
+    
 }

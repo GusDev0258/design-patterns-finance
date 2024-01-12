@@ -9,9 +9,10 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.List;
+import view.interfaces.BalanceObserver;
 
 /**
  *
@@ -19,6 +20,17 @@ import java.util.List;
  */
 @Entity
 public class Author {
+    
+    private List<BalanceObserver> observers = new ArrayList<>();
+    
+    public void addObserver(BalanceObserver observer) {
+        this.observers.add(observer);
+    }
+    
+    public void removeObserver(BalanceObserver observer) {
+        this.observers.remove(observer);
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -27,6 +39,8 @@ public class Author {
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
     private List<Payment> payments;
+    
+    private Double balance;
 
     public Long getId() {
         return id;
@@ -51,6 +65,19 @@ public class Author {
     public void setPayments(List<Payment> payments) {
         this.payments = payments;
     }
+
+    public Double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(Double balance) {
+        this.balance = balance;
+        this.notifyObservers(balance);
+    }
     
-    
+    private void notifyObservers(Double newBalance) {
+        for (BalanceObserver observer: observers) {
+            observer.updateBalance(newBalance);
+        }
+    }
 }
