@@ -35,7 +35,6 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         jLabel1 = new javax.swing.JLabel();
         btnAddIncome = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtCategory = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
@@ -44,10 +43,11 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         jLabel6 = new javax.swing.JLabel();
         txtOrigin = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtAuthor = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taDescription = new javax.swing.JTextArea();
+        cbCategory = new javax.swing.JComboBox<>();
+        cbAuthor = new javax.swing.JComboBox<>();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -87,6 +87,10 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         taDescription.setRows(5);
         jScrollPane1.setViewportView(taDescription);
 
+        cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cbAuthor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -98,6 +102,9 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
@@ -108,15 +115,12 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
                             .addComponent(jLabel7)
                             .addComponent(jLabel8)
                             .addComponent(jScrollPane1)
-                            .addComponent(txtAuthor)
                             .addComponent(txtOrigin)
                             .addComponent(txtDate)
-                            .addComponent(txtCategory)
                             .addComponent(txtValue)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jLabel1)))
+                            .addComponent(txtName)
+                            .addComponent(cbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbAuthor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -135,8 +139,8 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -146,9 +150,9 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
                 .addComponent(txtOrigin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cbAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,6 +175,8 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddIncome;
+    private javax.swing.JComboBox<String> cbAuthor;
+    private javax.swing.JComboBox<String> cbCategory;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -182,8 +188,6 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea taDescription;
-    private javax.swing.JTextField txtAuthor;
-    private javax.swing.JTextField txtCategory;
     private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtOrigin;
@@ -198,6 +202,38 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     @Override
     public void showView() {
         this.setVisible(true);
+    }
+    
+    public JButton getAddIncomeButton() {
+        return this.btnAddIncome;
+    }
+    
+    public String getIncomeName() {
+        return this.txtName.getText();
+    }
+    
+    public Double getIncomeValue() {
+        return Double.valueOf(this.txtValue.getText());
+    }
+    
+    public String getCategory() {
+        return this.cbCategory.getSelectedItem().toString();
+    }
+    
+    public String getDate() {
+        return this.txtDate.getText();
+    }
+    
+    public String getOrigin() {
+        return this.txtOrigin.getText();
+    }
+    
+    public String getAuthor() {
+        return this.cbAuthor.getSelectedItem().toString();
+    }
+    
+    public String getDescription() {
+        return this.taDescription.getText();
     }
     
 }

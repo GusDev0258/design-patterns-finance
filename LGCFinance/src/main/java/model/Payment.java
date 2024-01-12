@@ -26,6 +26,8 @@ public class Payment {
     
     private String origin;
     
+    private String type;
+    
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
@@ -89,6 +91,15 @@ public class Payment {
     public void setAuthor(Author author) {
         this.author = author;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+    
     
     
 }
