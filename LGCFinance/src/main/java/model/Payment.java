@@ -18,9 +18,11 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    private String name;
+    
     private Double value;
     
-    private LocalDate date;
+    private String date;
     
     private String description;
     
@@ -44,6 +46,14 @@ public class Payment {
         this.id = id;
     }
 
+    public String getName() {
+        return this.name;
+    }   
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public Category getCategory() {
         return category;
     }
@@ -60,11 +70,11 @@ public class Payment {
         this.value = value;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

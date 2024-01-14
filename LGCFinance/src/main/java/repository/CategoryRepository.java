@@ -19,7 +19,7 @@ public class CategoryRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Category saveAuthor(Category category) {
+    public Category saveCategory(Category category) {
         if(category.getId() == null) {
             entityManager.persist(category);
         } else {

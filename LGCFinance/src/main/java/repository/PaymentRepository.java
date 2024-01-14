@@ -19,7 +19,7 @@ public class PaymentRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Payment saveAuthor(Payment payment) {
+    public Payment savePayment(Payment payment) {
         if(payment.getId() == null) {
             entityManager.persist(payment);
         } else {

@@ -25,6 +25,7 @@ public final class DataBase {
     public void initConnection(String url, String username, String password) throws SQLException, Exception{
         if(this.connection == null) {
             this.connection = DriverManager.getConnection(url, username, password);
+            System.out.println("Successfully connected");
         }else{
             throw new Exception("You are already connected, close your connection before starting a new one");
         }
@@ -34,8 +35,13 @@ public final class DataBase {
         if (this.connection != null) {
             this.connection.close();
             this.connection = null;
+            System.out.println("Connection ended");
         } else {
             throw new Exception("A connection must be started before ending");
         }
+    }
+    
+    public Connection getConnection() {
+        return this.connection;
     }
 }

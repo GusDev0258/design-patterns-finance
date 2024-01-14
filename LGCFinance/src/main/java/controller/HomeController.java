@@ -17,16 +17,14 @@ public class HomeController implements ControllerInterface{
     ControllerInterface incomeController; 
     ControllerInterface historyController; 
     ControllerInterface expenditureController;
+    ControllerInterface authorController;
     
-    
-    public HomeController(ControllerInterface incomeController, ControllerInterface historyController, ControllerInterface expenditureController, Author author) {
+    public HomeController(ControllerInterface incomeController, ControllerInterface historyController, ControllerInterface expenditureController, ControllerInterface authorController) {
         this.homeView = new HomeView();
         this.incomeController = incomeController;
         this.historyController = historyController;
         this.expenditureController = expenditureController;
-        
-        author.addObserver(homeView);
-        
+        this.authorController = authorController;
         this.initHomeButtons();
     }
     
@@ -47,9 +45,14 @@ public class HomeController implements ControllerInterface{
         this.homeView.addBtnAction(this.homeView.getBtnExpenditure(), e -> this.expenditureController.openView());
     }
     
+    public void openAuthorView() {
+        this.homeView.addBtnAction(this.homeView.getBtnAddAuthor(), e -> this.authorController.openView());
+    }
+    
     public void initHomeButtons() {
         this.openIncomeView();
         this.openHistoryView();
         this.openExpenditureView();
+        this.openAuthorView();
     }
 }

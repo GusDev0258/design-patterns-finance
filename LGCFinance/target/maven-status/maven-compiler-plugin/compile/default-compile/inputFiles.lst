@@ -1,8 +1,10 @@
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\repository\PaymentRepository.java
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\command\interfaces\CommandInterface.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\IncomeView.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\model\Payment.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\HistoryView.java
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\command\AddBalanceCommand.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\interfaces\ViewInterface.java
-C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\model\PaymentType.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\interfaces\BalanceObserver.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\ExpenditureController.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\IncomeController.java
@@ -12,6 +14,10 @@ C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCF
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\model\Category.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\model\Author.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\HomeView.java
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\AuthorView.java
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\repository\AuthorRepository.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\com\lgc\lgcfinance\LGCFinance.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\HistoryController.java
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\repository\CategoryRepository.java
+C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\AuthorController.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\interfaces\ControllerInterface.java
