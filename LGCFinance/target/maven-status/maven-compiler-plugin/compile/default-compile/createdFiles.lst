@@ -11,10 +11,12 @@ view\AuthorView.class
 repository\PaymentRepository.class
 view\IncomeView$1.class
 controller\ExpenditureController.class
+controller\CategoryController.class
 controller\IncomeController.class
 view\HomeView$1.class
 data\DataBase.class
 view\interfaces\BalanceObserver.class
+view\CategoryView$1.class
 com\lgc\lgcfinance\LGCFinance.class
 command\AddBalanceCommand.class
 controller\HistoryController.class
@@ -27,4 +29,5 @@ model\Author.class
 model\Category.class
 repository\CategoryRepository.class
 view\HomeView$2.class
+view\CategoryView.class
 view\HomeView.class

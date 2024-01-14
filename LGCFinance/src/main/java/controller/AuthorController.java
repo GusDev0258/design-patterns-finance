@@ -26,7 +26,10 @@ public class AuthorController implements ControllerInterface{
     
     public void saveAuthor() {
         var author = new Author();
-        author.setBalance(Double.valueOf(this.authorView.getAuthorBalance()));
+        var randomId = Math.random() * 1000;
+        var id = String.valueOf(randomId).replace(".", "");
+        author.setId(Long.parseLong(id));
+        author.setBalance(Double.parseDouble(this.authorView.getAuthorBalance()));
         author.setName(this.authorView.getAuthorName());
         authorRepository.saveAuthor(author);
     }
