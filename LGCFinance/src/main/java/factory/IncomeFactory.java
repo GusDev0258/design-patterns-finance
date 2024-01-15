@@ -17,8 +17,6 @@ import model.Transaction;
  */
 public class IncomeFactory implements TransactionFactory{
     
-    private final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("d/MM/yyyy");
-    
     @Override
     public Transaction createTransaction(String name, Double value, String date, String origin, Category category, Author author, String description) {
         Income income = new Income();
@@ -31,17 +29,5 @@ public class IncomeFactory implements TransactionFactory{
         income.setDescription(description);
         income.setOrigin(origin);
         return income;
-    }
-    
-    @Override
-    public Long generateId(String incomeName) {
-        var nameCount = incomeName.length();
-        var id = String.valueOf(Math.random() * nameCount * 100).replace(".", "");
-        return Long.valueOf(id);
-    }
-    
-    @Override
-    public LocalDate parseStringToDate(String date) {
-        return LocalDate.parse(date, DATE_FORMAT);
     }
 }
