@@ -11,8 +11,11 @@ import controller.HistoryController;
 import controller.HomeController;
 import controller.IncomeController;
 import controller.interfaces.ControllerInterface;
+import model.Author;
+import observer.Transactions;
 import repository.AuthorRepository;
 import repository.CategoryRepository;
+
 
 /**
  *
@@ -27,8 +30,11 @@ public class LGCFinance {
         ControllerInterface categoryController = new CategoryController(categoryRepository);
         ControllerInterface authorController = new AuthorController(authorRepository);
         ControllerInterface incomeController = new IncomeController();
-        ControllerInterface historyController = new HistoryController();
+        var historyController = new HistoryController();
         ControllerInterface expenditureController = new ExpenditureController();
+     
+        Transactions.addObserver(historyController);
+
         ControllerInterface homeController = new HomeController(incomeController, historyController, expenditureController, authorController, categoryController);
         homeController.openView();
     }

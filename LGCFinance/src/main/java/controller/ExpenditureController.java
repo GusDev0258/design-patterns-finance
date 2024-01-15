@@ -35,5 +35,4 @@ public class ExpenditureController extends Transactions implements ControllerInt
         var transaction = this.expenditureView.getTransaction();
         super.notify(transaction);
     }
-    
 }
