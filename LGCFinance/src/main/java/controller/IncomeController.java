@@ -6,7 +6,7 @@ package controller;
 
 import controller.interfaces.ControllerInterface;
 import java.util.List;
-import model.Transaction;
+import model.Income;
 import model.Author;
 import observer.AuthorListObserver;
 import repository.TransactionRepository;
@@ -43,13 +43,12 @@ public class IncomeController extends Transactions implements ControllerInterfac
        var author      = this.incomeView.getAuthor();
        var category    = this.incomeView.getCategory();
        var origin      = this.incomeView.getOrigin();
-       var income      = new Transaction();
+       var income      = new Income();
        income.setValue(value);
        income.setName(name);
        income.setDate(date);
        income.setDescription(description);
        income.setOrigin(origin);
-       income.setType("income");
     }
     
     public void initIncomeButtons() {
