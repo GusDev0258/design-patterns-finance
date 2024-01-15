@@ -4,11 +4,6 @@
  */
 package model;
 
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import java.util.List;
 
 /**
@@ -16,13 +11,11 @@ import java.util.List;
  * @author gustavoavelar
  */
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     
     private String name;
     
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private List<Transaction> payments;
 
     public Long getId() {

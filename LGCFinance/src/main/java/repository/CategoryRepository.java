@@ -4,10 +4,9 @@
  */
 package repository;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+import java.util.Objects;
 import model.Category;
 
 /**
@@ -16,24 +15,45 @@ import model.Category;
  */
 public class CategoryRepository {
     
-    @PersistenceContext
-    private EntityManager entityManager;
-
-    public Category saveAuthor(Category category) {
-        if(category.getId() == null) {
-            entityManager.persist(category);
+    private static final CategoryRepository instance = new CategoryRepository();
+    
+    private List<Category> categories = new ArrayList<>();
+    
+    private CategoryRepository(){};
+    
+    public static CategoryRepository getInstance() {
+        return instance;
+    }
+        
+    public void saveCategory(Category category) {
+        var categoryFound = this.findById(category.getId());
+        if(categoryFound == null) {
+            categories.add(category);
+            System.out.println("Categoria salva com sucesso!");
         } else {
-            category = entityManager.merge(category);
+            categories.remove(category);
+            categoryFound.setName(category.getName());
+            categories.add(category);
+            System.out.println("Categoria atualizada!");
         }
-        return category;
     }
-
-    public List<Category> getAllCategories() {
-       return entityManager.createQuery("SELECT * FROM category", Category.class).getResultList();
+    
+    public void deleteById(Long id) {
+        var authorFound = this.findById(id);
+        if(authorFound != null) {
+            categories.remove(authorFound);
+        } else {
+            System.out.println("Categoria não encontrada");
+        }
     }
-
-    public Optional<Category> getById(Long id) {
-        Category category = entityManager.find(Category.class, id);
-        return Optional.ofNullable(category);
+    
+    public Category findById(Long id) {
+        for(Category category: categories) {
+            if (Objects.equals(category.getId(), id)){
+                return category;
+            }
+        }
+        return null;
     }
+    
 }

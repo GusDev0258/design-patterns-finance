@@ -4,36 +4,31 @@
  */
 package model;
 
-import jakarta.persistence.*;
-import java.time.LocalDate;
+
 
 /**
  *
  * @author gustavoavelar
  */
-@Entity
-@Table(name="transaction")
+
 public class Transaction {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
+    
+    private String name;
     
     private Double value;
     
-    private LocalDate date;
+    private String date;
     
     private String description;
     
     private String origin;
     
     private String type;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
+
     private Category category;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id")
     private Author author;
 
     public Long getId() {
@@ -44,6 +39,14 @@ public class Transaction {
         this.id = id;
     }
 
+    public String getName() {
+        return this.name;
+    }   
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public Category getCategory() {
         return category;
     }
@@ -60,11 +63,11 @@ public class Transaction {
         this.value = value;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

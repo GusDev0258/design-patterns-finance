@@ -7,7 +7,9 @@ package view;
 import dto.TransactionDTO;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import model.Author;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import view.interfaces.ViewInterface;
 
 /**
@@ -90,8 +92,6 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         jScrollPane1.setViewportView(taDescription);
 
         cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbAuthor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,7 +177,7 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddIncome;
-    private javax.swing.JComboBox<String> cbAuthor;
+    private javax.swing.JComboBox<Author> cbAuthor;
     private javax.swing.JComboBox<String> cbCategory;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -237,6 +237,14 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     
     public String getDescription() {
         return this.taDescription.getText();
+    }
+    
+    public JComboBox getCbAuthor() {
+        return this.cbAuthor;
+    }
+    
+    public JComboBox getCbCategory() {
+        return this.cbCategory;
     }
     
     public TransactionDTO getTransaction() {

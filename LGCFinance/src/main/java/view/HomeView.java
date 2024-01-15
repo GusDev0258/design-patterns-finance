@@ -148,6 +148,14 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
         return this.btnHistory;
     }
     
+    public JButton getBtnAddAuthor() {
+        return this.btnAddUser;
+    }
+    
+    public JButton getBtnAddCategory() {
+        return this.btnAddCategory;
+    }
+    
     @Override
     public void showView() {
         this.setVisible(true);
