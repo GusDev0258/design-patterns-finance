@@ -6,14 +6,15 @@ package view;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import view.interfaces.BalanceObserver;
 import view.interfaces.ViewInterface;
+import observer.Observer;
+import dto.TransactionDTO;
 
 /**
  *
  * @author gustavoavelar
  */
-public class HomeView extends javax.swing.JFrame implements ViewInterface, BalanceObserver{
+public class HomeView extends javax.swing.JFrame implements ViewInterface, Observer{
     /**
      * Creates new form TelaInicio
      */
@@ -153,7 +154,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Balan
     }
     
     @Override
-    public void updateBalance(Double amount) {
-        this.lbCurrentBalance.setText("Saldo: R$" + amount.toString());
+    public void update(TransactionDTO transaction) {
+        this.lbCurrentBalance.setText("Saldo: R$" + transaction.getValue().toString());
     }
 }

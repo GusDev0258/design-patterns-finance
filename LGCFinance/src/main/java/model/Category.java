@@ -23,7 +23,7 @@ public class Category {
     private String name;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-    private List<Payment> payments;
+    private List<Transaction> payments;
 
     public Long getId() {
         return id;
@@ -41,11 +41,11 @@ public class Category {
         this.name = name;
     }
 
-    public List<Payment> getPayments() {
+    public List<Transaction> getPayments() {
         return payments;
     }
 
-    public void setPayments(List<Payment> payments) {
+    public void setPayments(List<Transaction> payments) {
         this.payments = payments;
     }
     

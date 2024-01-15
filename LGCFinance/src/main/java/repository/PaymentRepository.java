@@ -8,7 +8,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
-import model.Payment;
+import model.Transaction;
 
 /**
  *
@@ -19,7 +19,7 @@ public class PaymentRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Payment saveAuthor(Payment payment) {
+    public Transaction saveAuthor(Transaction payment) {
         if(payment.getId() == null) {
             entityManager.persist(payment);
         } else {
@@ -28,12 +28,12 @@ public class PaymentRepository {
         return payment;
     }
 
-    public List<Payment> getAllPayments() {
-       return entityManager.createQuery("SELECT * FROM payment", Payment.class).getResultList();
+    public List<Transaction> getAllPayments() {
+       return entityManager.createQuery("SELECT * FROM payment", Transaction.class).getResultList();
     }
 
-    public Optional<Payment> getById(Long id) {
-        Payment payment = entityManager.find(Payment.class, id);
+    public Optional<Transaction> getById(Long id) {
+        Transaction payment = entityManager.find(Transaction.class, id);
         return Optional.ofNullable(payment);
     }
 }

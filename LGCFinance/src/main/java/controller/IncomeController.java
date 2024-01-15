@@ -6,12 +6,13 @@ package controller;
 
 import controller.interfaces.ControllerInterface;
 import view.IncomeView;
+import observer.Transactions;
 
 /**
  *
  * @author sonho
  */
-public class IncomeController implements ControllerInterface{
+public class IncomeController extends Transactions implements ControllerInterface{
 
     IncomeView incomeView;
     
@@ -24,4 +25,12 @@ public class IncomeController implements ControllerInterface{
         this.incomeView.showView();
     }
     
+    public void initiateButtons() {
+        this.incomeView.addBtnAction(this.incomeView.getAddIncomeButton(), e -> addTransaction());
+    }
+    
+    public void addTransaction() {
+        var transaction = this.incomeView.getTransaction();
+        super.notify(transaction);
+    }
 }

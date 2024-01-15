@@ -12,7 +12,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
-import view.interfaces.BalanceObserver;
+import observer.Observer;
+import dto.TransactionDTO;
 
 /**
  *
@@ -21,13 +22,13 @@ import view.interfaces.BalanceObserver;
 @Entity
 public class Author {
     
-    private List<BalanceObserver> observers = new ArrayList<>();
+    private List<Observer> observers = new ArrayList<>();
     
-    public void addObserver(BalanceObserver observer) {
+    public void addObserver(Observer observer) {
         this.observers.add(observer);
     }
     
-    public void removeObserver(BalanceObserver observer) {
+    public void removeObserver(Observer observer) {
         this.observers.remove(observer);
     }
     
@@ -38,7 +39,7 @@ public class Author {
     private String name;
     
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
-    private List<Payment> payments;
+    private List<Transaction> payments;
     
     private Double balance;
 
@@ -58,11 +59,11 @@ public class Author {
         this.name = name;
     }
 
-    public List<Payment> getPayments() {
+    public List<Transaction> getPayments() {
         return payments;
     }
 
-    public void setPayments(List<Payment> payments) {
+    public void setPayments(List<Transaction> payments) {
         this.payments = payments;
     }
 
@@ -70,14 +71,14 @@ public class Author {
         return balance;
     }
 
-    public void setBalance(Double balance) {
-        this.balance = balance;
-        this.notifyObservers(balance);
-    }
+//    public void setBalance(Double balance) {
+//        this.balance = balance;
+//        this.notifyObservers(balance);
+//    }
     
-    private void notifyObservers(Double newBalance) {
-        for (BalanceObserver observer: observers) {
-            observer.updateBalance(newBalance);
+    private void notifyObservers(TransactionDTO transaction) {
+        for (Observer observer: observers) {
+            observer.update(transaction);
         }
     }
 }

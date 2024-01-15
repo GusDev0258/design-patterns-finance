@@ -2,24 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package dto;
 
-import jakarta.persistence.*;
 import java.time.LocalDate;
 
 /**
  *
- * @author gustavoavelar
+ * @author luiz
  */
-@Entity
-@Table(name="payment")
-public class Payment {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    
+public class TransactionDTO {
     private Double value;
     
+    private String name;
+
     private LocalDate date;
     
     private String description;
@@ -28,30 +23,19 @@ public class Payment {
     
     private String type;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private String category;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id")
-    private Author author;
+    private String author;
 
-    public Long getId() {
-        return id;
+       public String getName() {
+        return name;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
+    
+    
     public Double getValue() {
         return value;
     }
@@ -84,14 +68,6 @@ public class Payment {
         this.origin = origin;
     }
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
     public String getType() {
         return type;
     }
@@ -99,7 +75,23 @@ public class Payment {
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
     
     
-    
+
 }
