@@ -5,19 +5,24 @@
 package controller;
 
 import controller.interfaces.ControllerInterface;
+import java.util.List;
 import model.Transaction;
+import model.Author;
+import observer.AuthorListObserver;
 import repository.TransactionRepository;
 import view.IncomeView;
 import observer.Transactions;
+import repository.AuthorRepository;
 
 /**
  *
  * @author sonho
  */
-public class IncomeController extends Transactions implements ControllerInterface{
+public class IncomeController extends Transactions implements ControllerInterface, AuthorListObserver{
 
     IncomeView incomeView;
     TransactionRepository transactionRepository;
+    AuthorRepository authorRepository = AuthorRepository.getInstance();
     
     public IncomeController() {
         this.incomeView = new IncomeView();
@@ -57,5 +62,16 @@ public class IncomeController extends Transactions implements ControllerInterfac
     public void addTransaction() {
         var transaction = this.incomeView.getTransaction();
         super.notify(transaction);
+    }
+    
+    public void populateCbAuthor(List<Author> authors) {
+        for(Author author: authors) {
+            this.incomeView.getCbAuthor().addItem(author);
+        }
+    }
+
+    @Override
+    public void update(List<Author> authors) {
+        this.populateCbAuthor(authors);
     }
 }

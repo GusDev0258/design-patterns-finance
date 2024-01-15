@@ -7,7 +7,9 @@ package view;
 import dto.TransactionDTO;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import view.interfaces.ViewInterface;
 
 /**
@@ -237,6 +239,14 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     
     public String getDescription() {
         return this.taDescription.getText();
+    }
+    
+    public JComboBox getCbAuthor() {
+        return this.cbAuthor;
+    }
+    
+    public JComboBox getCbCategory() {
+        return this.cbCategory;
     }
     
     public TransactionDTO getTransaction() {

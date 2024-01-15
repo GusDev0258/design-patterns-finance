@@ -80,4 +80,8 @@ public class Author {
             observer.update(transaction);
         }
     }
+    @Override
+    public String toString() {
+        return this.getName() + "Saldo: " + this.getBalance();
+    }
 }

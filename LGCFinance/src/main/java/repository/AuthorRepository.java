@@ -8,14 +8,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import model.Author;
+import observer.AuthorListObserver;
 
 /**
  *
  * @author sonho
  */
-public class AuthorRepository{
+public class AuthorRepository {
     
     private static final AuthorRepository instance = new AuthorRepository();
+    private List<AuthorListObserver> observers = new ArrayList<>();
+    
     
     private List<Author> authors = new ArrayList<>();
     
@@ -25,17 +28,24 @@ public class AuthorRepository{
         return instance;
     }
     
+    public List<Author> getAll() {
+        return this.authors;
+    }
+    
+    
     public void saveAuthor(Author author) {
         var authorFound = this.findById(author.getId());
         if(authorFound == null) {
             authors.add(author);
             System.out.println("Author salvo com sucesso!");
+            this.notifyObservers(authors);
         } else {
             authors.remove(author);
             authorFound.setBalance(author.getBalance());
             authorFound.setName(author.getName());
             authors.add(author);
             System.out.println("Author atualizado!");
+            this.notifyObservers(authors);
         }
     }
     
@@ -43,6 +53,7 @@ public class AuthorRepository{
         var authorFound = this.findById(id);
         if(authorFound != null) {
             authors.remove(authorFound);
+            this.notifyObservers(authors);
         } else {
             System.out.println("Autor não encontrado");
         }
@@ -55,6 +66,20 @@ public class AuthorRepository{
             }
         }
         return null;
+    }
+    
+    public void addObserver(AuthorListObserver observer) { 
+        this.observers.add(observer);
+    }
+    
+    public void removeObserver(AuthorListObserver observer) {
+        this.observers.add(observer);
+    }
+    
+    public void notifyObservers(List<Author> authors) {
+        for(AuthorListObserver authorObserver : observers) {
+            authorObserver.update(authors);
+        }
     }
     
 }
