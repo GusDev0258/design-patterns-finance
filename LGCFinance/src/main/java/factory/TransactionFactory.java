@@ -5,6 +5,7 @@
 package factory;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import model.Author;
 import model.Category;
 import model.Transaction;
@@ -15,7 +16,17 @@ import model.Transaction;
  */
 public interface TransactionFactory {
     
+    public final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("d/MM/yyyy");
+    
     Transaction createTransaction(String name, Double value, String date, String origin, Category category, Author author, String description);
-    public Long generateId(String salt);
-    public LocalDate parseStringToDate(String date);
+    
+    default Long generateId(String incomeName) {
+        var nameCount = incomeName.length();
+        var id = String.valueOf(Math.random() * nameCount * 100).replace(".", "");
+        return Long.valueOf(id);
+    }
+    
+    default LocalDate parseStringToDate(String date) {
+        return LocalDate.parse(date, DATE_FORMAT);
+    }
 }
