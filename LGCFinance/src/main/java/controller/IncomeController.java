@@ -5,6 +5,8 @@
 package controller;
 
 import controller.interfaces.ControllerInterface;
+import factory.IncomeFactory;
+import factory.TransactionFactory;
 import java.util.List;
 import model.Income;
 import model.Author;
@@ -21,8 +23,9 @@ import repository.AuthorRepository;
 public class IncomeController extends Transactions implements ControllerInterface, AuthorListObserver{
 
     IncomeView incomeView;
-    TransactionRepository transactionRepository;
     AuthorRepository authorRepository = AuthorRepository.getInstance();
+    TransactionFactory incomeFactory = new IncomeFactory();
+    TransactionRepository transactionRepository = TransactionRepository.getInstance();
     
     public IncomeController() {
         this.incomeView = new IncomeView();
@@ -36,19 +39,14 @@ public class IncomeController extends Transactions implements ControllerInterfac
     }
     
     public void saveIncome() {
-       var value       = this.incomeView.getIncomeValue();
-       var name        = this.incomeView.getIncomeName();
-       var date        = this.incomeView.getDate();
-       var description = this.incomeView.getDescription();
-       var author      = this.incomeView.getAuthor();
-       var category    = this.incomeView.getCategory();
-       var origin      = this.incomeView.getOrigin();
-       var income      = new Income();
-       income.setValue(value);
-       income.setName(name);
-       income.setDate(date);
-       income.setDescription(description);
-       income.setOrigin(origin);
+        var income = incomeFactory.createTransaction(this.incomeView.getIncomeName(), 
+                this.incomeView.getIncomeValue(), 
+                this.incomeView.getDate(), 
+                this.incomeView.getOrigin(), 
+                this.incomeView.getCategory(), 
+                this.incomeView.getAuthor(), 
+                this.incomeView.getDescription());
+        transactionRepository.saveTransaction(income);  
     }
     
     public void initiateButtons() {

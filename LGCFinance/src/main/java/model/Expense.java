@@ -34,7 +34,7 @@ public class Expense implements Transaction{
     public Long getId() {
         return id;
     }
-
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
@@ -43,7 +43,7 @@ public class Expense implements Transaction{
     public String getName() {
         return name;
     }
-
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -52,7 +52,8 @@ public class Expense implements Transaction{
     public Double getValue() {
         return value;
     }
-
+    
+    @Override
     public void setValue(Double value) {
         this.value = value;
     }
@@ -61,7 +62,8 @@ public class Expense implements Transaction{
     public LocalDate getDate() {
         return date;
     }
-
+    
+    @Override
     public void setDate(LocalDate date) {
         this.date = date;
     }
@@ -71,6 +73,7 @@ public class Expense implements Transaction{
         return description;
     }
 
+    @Override
     public void setDescription(String description) {
         this.description = description;
     }
@@ -80,6 +83,7 @@ public class Expense implements Transaction{
         return origin;
     }
 
+    @Override
     public void setOrigin(String origin) {
         this.origin = origin;
     }
@@ -94,6 +98,7 @@ public class Expense implements Transaction{
         return category;
     }
 
+    @Override
     public void setCategory(Category category) {
         this.category = category;
     }
@@ -103,10 +108,8 @@ public class Expense implements Transaction{
         return author;
     }
 
+    @Override
     public void setAuthor(Author author) {
         this.author = author;
     }
-    
-    
-    
 }

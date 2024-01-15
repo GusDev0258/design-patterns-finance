@@ -28,7 +28,7 @@ public class AuthorRepository {
         return instance;
     }
     
-    public List<Author> getAll() {
+    public List<Author> findAll() {
         return this.authors;
     }
     
@@ -40,10 +40,10 @@ public class AuthorRepository {
             System.out.println("Author salvo com sucesso!");
             this.notifyObservers(authors);
         } else {
-            authors.remove(author);
+            authors.remove(authorFound);
             authorFound.setBalance(author.getBalance());
             authorFound.setName(author.getName());
-            authors.add(author);
+            authors.add(authorFound);
             System.out.println("Author atualizado!");
             this.notifyObservers(authors);
         }

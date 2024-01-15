@@ -11,6 +11,7 @@ import model.Author;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import view.interfaces.ViewInterface;
+import model.Category;
 
 /**
  *
@@ -90,8 +91,6 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         taDescription.setColumns(20);
         taDescription.setRows(5);
         jScrollPane1.setViewportView(taDescription);
-
-        cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,7 +177,7 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddIncome;
     private javax.swing.JComboBox<Author> cbAuthor;
-    private javax.swing.JComboBox<String> cbCategory;
+    private javax.swing.JComboBox<Category> cbCategory;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -219,8 +218,8 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         return Double.valueOf(this.txtValue.getText());
     }
     
-    public String getCategory() {
-        return this.cbCategory.getSelectedItem().toString();
+    public Category getCategory() {
+        return (Category) this.cbCategory.getSelectedItem();
     }
     
     public String getDate() {
@@ -231,8 +230,8 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         return this.txtOrigin.getText();
     }
     
-    public String getAuthor() {
-        return this.cbAuthor.getSelectedItem().toString();
+    public Author getAuthor() {
+        return (Author) this.cbAuthor.getSelectedItem();
     }
     
     public String getDescription() {
@@ -249,8 +248,8 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     
     public TransactionDTO getTransaction() {
         var transaction = new TransactionDTO();
-        transaction.setAuthor(getAuthor());
-        transaction.setCategory(getCategory());
+        transaction.setAuthor(getAuthor().getName());
+        transaction.setCategory(getCategory().getName());
         transaction.setDate(LocalDate.parse(getDate()));
         transaction.setName(getIncomeName());
         transaction.setDescription(getDescription());

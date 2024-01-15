@@ -24,7 +24,12 @@ public class CategoryRepository {
     public static CategoryRepository getInstance() {
         return instance;
     }
-        
+    
+    public List<Category> findAll() {
+        return this.categories;
+    }
+
+    
     public void saveCategory(Category category) {
         var categoryFound = this.findById(category.getId());
         if(categoryFound == null) {
@@ -39,9 +44,9 @@ public class CategoryRepository {
     }
     
     public void deleteById(Long id) {
-        var authorFound = this.findById(id);
-        if(authorFound != null) {
-            categories.remove(authorFound);
+        var categoryFound = this.findById(id);
+        if(categoryFound != null) {
+            categories.remove(categoryFound);
         } else {
             System.out.println("Categoria não encontrada");
         }
