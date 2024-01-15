@@ -24,4 +24,12 @@ public interface Transaction {
     public String getOrigin();
     public Author getAuthor();
     public String getType() ;
+    public void setId(Long id);
+    public void setName(String name);
+    public void setCategory(Category category);
+    public void setValue(Double value);
+    public void setDate(LocalDate date);
+    public void setDescription(String descrpition) ;
+    public void setOrigin(String origin);
+    public void setAuthor(Author author);
 }
