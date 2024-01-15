@@ -241,13 +241,13 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     
     public TransactionDTO getTransaction() {
         var transaction = new TransactionDTO();
-        transaction.setAuthor(String.valueOf(this.cbAuthor.getSelectedItem()));
-        transaction.setCategory(String.valueOf(this.cbCategory.getSelectedItem()));
-        transaction.setDate(LocalDate.MAX);
-        transaction.setName(this.txtName.getText());
-        transaction.setDescription(this.taDescription.getText());
-        transaction.setOrigin(this.txtOrigin.getText());
-        transaction.setValue(Double.valueOf(this.txtValue.getText()));
+        transaction.setAuthor(getAuthor());
+        transaction.setCategory(getCategory());
+        transaction.setDate(LocalDate.parse(getDate()));
+        transaction.setName(getIncomeName());
+        transaction.setDescription(getDescription());
+        transaction.setOrigin(getOrigin());
+        transaction.setValue(getIncomeValue());
         
         return transaction;
     }

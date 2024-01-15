@@ -10,6 +10,7 @@ import controller.HomeController;
 import controller.IncomeController;
 import controller.interfaces.ControllerInterface;
 import model.Author;
+import observer.Transactions;
 
 /**
  *
@@ -20,9 +21,11 @@ public class LGCFinance {
     public static void main(String[] args) {
         Author autor = new Author();
         ControllerInterface incomeController = new IncomeController();
-        ControllerInterface historyController = new HistoryController();
+        var historyController = new HistoryController();
         ControllerInterface expenditureController = new ExpenditureController();
         ControllerInterface homeController = new HomeController(incomeController, historyController, expenditureController, autor);
+        
+        Transactions.addObserver(historyController);
         homeController.openView();
     }
 }

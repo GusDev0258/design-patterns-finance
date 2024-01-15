@@ -87,7 +87,7 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface {
     }
     
     public void loadTable(List<TransactionDTO> transactions) { 
-        for (int currentLine = 0; currentLine < getRowCount(); currentLine++) {
+        for (int currentLine = 0; currentLine < transactions.size(); currentLine++) {
             setNameColumn(transactions.get(currentLine).getName(), currentLine);
             setValueColumn(transactions.get(currentLine).getValue(), currentLine);
             setCategoryColumn(transactions.get(currentLine).getCategory(), currentLine);

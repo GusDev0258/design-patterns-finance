@@ -18,6 +18,7 @@ public class IncomeController extends Transactions implements ControllerInterfac
     
     public IncomeController() {
         this.incomeView = new IncomeView();
+        initiateButtons();
     }
     
     @Override
