@@ -18,7 +18,7 @@ public class HistoryController implements ControllerInterface, Observer
 {
 
     HistoryView historyView;
-    List<TransactionDTO> transactions = new ArrayList<>();
+    private static final List<TransactionDTO>  transactions = new ArrayList<>();
 
     public HistoryController() {
         this.historyView = new HistoryView();

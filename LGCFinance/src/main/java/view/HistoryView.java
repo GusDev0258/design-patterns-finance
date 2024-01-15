@@ -87,7 +87,7 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface {
     }
     
     public void loadTable(List<TransactionDTO> transactions) { 
-        for (int currentLine = 0; currentLine < getRowCount(); currentLine++) {
+        for (int currentLine = 0; currentLine < transactions.size(); currentLine++) {
             setNameColumn(transactions.get(currentLine).getName(), currentLine);
             setValueColumn(transactions.get(currentLine).getValue(), currentLine);
             setCategoryColumn(transactions.get(currentLine).getCategory(), currentLine);
@@ -97,43 +97,39 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface {
             setDescriptionColumn(transactions.get(currentLine).getDescription(), currentLine);
         }
     }
-    
-    public int getRowCount() {
-        return tbTransaction.getRowCount();
-    }
 
   private void setNameColumn(Object value, int currentRow) {
-        byte nameColumn = 1;
+        byte nameColumn = 0;
         tbTransaction.setValueAt(value, currentRow, nameColumn);
     }
   
   private void setValueColumn(Object value, int currentRow) {
-      byte nameColumn = 2;
-      tbTransaction.setValueAt(value, currentRow, nameColumn);
+      byte valueColumn = 1;
+      tbTransaction.setValueAt(value, currentRow, valueColumn);
   }
   
   private void setCategoryColumn(Object value, int currentRow) {
-      byte categoryColumn = 3;
+      byte categoryColumn = 2;
       tbTransaction.setValueAt(value, currentRow, categoryColumn);
   }
   
   private void setDateColumn(Object value, int currentRow) {
-      byte dateColumn = 4;
+      byte dateColumn = 3;
       tbTransaction.setValueAt(value, currentRow, dateColumn);
   }
   
   private void setOriginColumn(Object value, int currentRow) {
-      byte originColumn = 5;
+      byte originColumn = 4;
       tbTransaction.setValueAt(value, currentRow, originColumn);
   }
   
   private void setAuthorColumn(Object value, int currentRow) {
-      byte authorColumn = 1;
+      byte authorColumn = 5;
       tbTransaction.setValueAt(value, currentRow, authorColumn);
   }
   
   private void setDescriptionColumn(Object value, int currentRow) {
-      byte descriptionColumn = 1;
+      byte descriptionColumn = 6;
       tbTransaction.setValueAt(value, currentRow, descriptionColumn);
   }
 }

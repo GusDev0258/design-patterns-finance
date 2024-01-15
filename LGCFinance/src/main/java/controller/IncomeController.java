@@ -26,7 +26,7 @@ public class IncomeController extends Transactions implements ControllerInterfac
     
     public IncomeController() {
         this.incomeView = new IncomeView();
-        this.initIncomeButtons();
+        initiateButtons();
         authorRepository.addObserver(this);
     }
     
@@ -49,10 +49,6 @@ public class IncomeController extends Transactions implements ControllerInterfac
        income.setDate(date);
        income.setDescription(description);
        income.setOrigin(origin);
-    }
-    
-    public void initIncomeButtons() {
-        this.incomeView.addBtnAction(this.incomeView.getAddIncomeButton(), e -> this.saveIncome());
     }
     
     public void initiateButtons() {

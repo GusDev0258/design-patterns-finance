@@ -191,16 +191,44 @@ public class ExpenditureView extends javax.swing.JFrame implements ViewInterface
     public void showView() {
         this.setVisible(true);
     }
-
+    
+    public String getIncomeName() {
+        return this.txtName.getText();
+    }
+    
+    public Double getIncomeValue() {
+        return Double.valueOf(this.txtValue.getText());
+    }
+    
+    public String getCategory() {
+        return this.cbCategory.getSelectedItem().toString();
+    }
+    
+    public String getDate() {
+        return this.txtDate.getText();
+    }
+    
+    public String getOrigin() {
+        return this.txtOrigin.getText();
+    }
+    
+    public String getAuthor() {
+        return this.cbAuthor.getSelectedItem().toString();
+    }
+    
+    public String getDescription() {
+        return this.txtAreaDescription.getText();
+    }
+    
     public TransactionDTO getTransaction() {
         var transaction = new TransactionDTO();
-        transaction.setAuthor(String.valueOf(this.cbAuthor.getSelectedItem()));
-        transaction.setCategory(String.valueOf(this.cbCategory.getSelectedItem()));
-        transaction.setDate(LocalDate.MAX);
-        transaction.setName(this.txtName.getText());
-        transaction.setDescription(this.txtAreaDescription.getText());
-        transaction.setOrigin(this.txtOrigin.getText());
-        transaction.setValue(Double.valueOf(this.txtValue.getText()));
+        transaction.setAuthor(getAuthor());
+        transaction.setCategory(getCategory());
+        transaction.setDate(LocalDate.parse(getDate()));
+        transaction.setName(getIncomeName());
+        transaction.setDescription(getDescription());
+        transaction.setOrigin(getOrigin());
+        transaction.setValue(getIncomeValue());
         
         return transaction;
     }
