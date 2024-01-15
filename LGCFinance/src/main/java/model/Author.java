@@ -4,12 +4,7 @@
  */
 package model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+
 import java.util.ArrayList;
 import java.util.List;
 import observer.Observer;
@@ -19,7 +14,7 @@ import dto.TransactionDTO;
  *
  * @author gustavoavelar
  */
-@Entity
+
 public class Author {
     
     private List<Observer> observers = new ArrayList<>();
@@ -32,13 +27,10 @@ public class Author {
         this.observers.remove(observer);
     }
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
     private String name;
-    
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "author")
+
     private List<Transaction> payments;
     
     private Double balance;
@@ -82,6 +74,6 @@ public class Author {
     }
     @Override
     public String toString() {
-        return this.getName() + "Saldo: " + this.getBalance();
+        return " " + this.getName() + " Saldo: " + this.getBalance() + " ";
     }
 }

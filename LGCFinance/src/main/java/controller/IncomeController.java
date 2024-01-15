@@ -27,6 +27,7 @@ public class IncomeController extends Transactions implements ControllerInterfac
     public IncomeController() {
         this.incomeView = new IncomeView();
         this.initIncomeButtons();
+        authorRepository.addObserver(this);
     }
     
     @Override
@@ -65,13 +66,16 @@ public class IncomeController extends Transactions implements ControllerInterfac
     }
     
     public void populateCbAuthor(List<Author> authors) {
+        if(authors == null) return;
         for(Author author: authors) {
             this.incomeView.getCbAuthor().addItem(author);
+            System.out.println("populated");
         }
     }
 
     @Override
     public void update(List<Author> authors) {
+        System.out.println("updated!");
         this.populateCbAuthor(authors);
     }
 }

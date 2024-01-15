@@ -78,6 +78,7 @@ public class AuthorRepository {
     
     public void notifyObservers(List<Author> authors) {
         for(AuthorListObserver authorObserver : observers) {
+            System.out.println("notified");
             authorObserver.update(authors);
         }
     }

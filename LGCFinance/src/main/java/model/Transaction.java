@@ -4,18 +4,15 @@
  */
 package model;
 
-import jakarta.persistence.*;
-import java.time.LocalDate;
+
 
 /**
  *
  * @author gustavoavelar
  */
-@Entity
-@Table(name="transaction")
+
 public class Transaction {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     
     private String name;
@@ -29,13 +26,9 @@ public class Transaction {
     private String origin;
     
     private String type;
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id")
+
     private Category category;
     
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id")
     private Author author;
 
     public Long getId() {
