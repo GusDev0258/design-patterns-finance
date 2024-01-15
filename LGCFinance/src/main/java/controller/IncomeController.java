@@ -5,18 +5,19 @@
 package controller;
 
 import controller.interfaces.ControllerInterface;
-import model.Payment;
-import repository.PaymentRepository;
+import model.Transaction;
+import repository.TransactionRepository;
 import view.IncomeView;
+import observer.Transactions;
 
 /**
  *
  * @author sonho
  */
-public class IncomeController implements ControllerInterface{
+public class IncomeController extends Transactions implements ControllerInterface{
 
     IncomeView incomeView;
-    PaymentRepository paymentRepository;
+    TransactionRepository transactionRepository;
     
     public IncomeController() {
         this.incomeView = new IncomeView();
@@ -36,7 +37,7 @@ public class IncomeController implements ControllerInterface{
        var author      = this.incomeView.getAuthor();
        var category    = this.incomeView.getCategory();
        var origin      = this.incomeView.getOrigin();
-       var income      = new Payment();
+       var income      = new Transaction();
        income.setValue(value);
        income.setName(name);
        income.setDate(date);
@@ -49,4 +50,12 @@ public class IncomeController implements ControllerInterface{
         this.incomeView.addBtnAction(this.incomeView.getAddIncomeButton(), e -> this.saveIncome());
     }
     
+    public void initiateButtons() {
+        this.incomeView.addBtnAction(this.incomeView.getAddIncomeButton(), e -> addTransaction());
+    }
+    
+    public void addTransaction() {
+        var transaction = this.incomeView.getTransaction();
+        super.notify(transaction);
+    }
 }

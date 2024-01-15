@@ -5,14 +5,16 @@
 package view;
 
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JButton;
 import view.interfaces.ViewInterface;
+import dto.TransactionDTO;
 
 /**
  *
  * @author sonho
  */
-public class HistoryView extends javax.swing.JFrame implements ViewInterface{
+public class HistoryView extends javax.swing.JFrame implements ViewInterface {
 
     /**
      * Creates new form TelaHistorico
@@ -25,11 +27,11 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface{
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbTransaction = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbTransaction.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -45,7 +47,7 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface{
                 "Nome", "Valor", "Categoria", "Data", "Origem", "Autor", "Descrição"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbTransaction);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,16 +72,68 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tbTransaction;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void addBtnAction(JButton btn, ActionListener action) {
         btn.addActionListener(action);
     }
+    
 
     @Override
     public void showView() {
         this.setVisible(true);
     }
+    
+    public void loadTable(List<TransactionDTO> transactions) { 
+        for (int currentLine = 0; currentLine < getRowCount(); currentLine++) {
+            setNameColumn(transactions.get(currentLine).getName(), currentLine);
+            setValueColumn(transactions.get(currentLine).getValue(), currentLine);
+            setCategoryColumn(transactions.get(currentLine).getCategory(), currentLine);
+            setDateColumn(transactions.get(currentLine).getDate(), currentLine);
+            setOriginColumn(transactions.get(currentLine).getOrigin(), currentLine);
+            setAuthorColumn(transactions.get(currentLine).getAuthor(), currentLine);
+            setDescriptionColumn(transactions.get(currentLine).getDescription(), currentLine);
+        }
+    }
+    
+    public int getRowCount() {
+        return tbTransaction.getRowCount();
+    }
+
+  private void setNameColumn(Object value, int currentRow) {
+        byte nameColumn = 1;
+        tbTransaction.setValueAt(value, currentRow, nameColumn);
+    }
+  
+  private void setValueColumn(Object value, int currentRow) {
+      byte nameColumn = 2;
+      tbTransaction.setValueAt(value, currentRow, nameColumn);
+  }
+  
+  private void setCategoryColumn(Object value, int currentRow) {
+      byte categoryColumn = 3;
+      tbTransaction.setValueAt(value, currentRow, categoryColumn);
+  }
+  
+  private void setDateColumn(Object value, int currentRow) {
+      byte dateColumn = 4;
+      tbTransaction.setValueAt(value, currentRow, dateColumn);
+  }
+  
+  private void setOriginColumn(Object value, int currentRow) {
+      byte originColumn = 5;
+      tbTransaction.setValueAt(value, currentRow, originColumn);
+  }
+  
+  private void setAuthorColumn(Object value, int currentRow) {
+      byte authorColumn = 1;
+      tbTransaction.setValueAt(value, currentRow, authorColumn);
+  }
+  
+  private void setDescriptionColumn(Object value, int currentRow) {
+      byte descriptionColumn = 1;
+      tbTransaction.setValueAt(value, currentRow, descriptionColumn);
+  }
 }

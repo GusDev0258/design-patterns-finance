@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\repository\PaymentRepository.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\IncomeView.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\model\Payment.java
@@ -23,3 +24,26 @@ C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCF
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\AuthorController.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\controller\interfaces\ControllerInterface.java
 C:\Users\sonho\main\eng_software\s5\padroes-projeto\design-patterns-finance\LGCFinance\src\main\java\view\CategoryView.java
+=======
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/view/IncomeView.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/view/ExpenditureView.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/controller/ExpenditureController.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/model/Author.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/view/HistoryView.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/observer/Transactions.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/dto/TransactionDTO.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/observer/Observer.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/controller/HistoryController.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/repository/CategoryRepository.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/controller/interfaces/ControllerInterface.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/model/Category.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/repository/PaymentRepository.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/data/DataBase.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/model/Transaction.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/repository/AuthorRepository.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/controller/HomeController.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/view/interfaces/ViewInterface.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/com/lgc/lgcfinance/LGCFinance.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/controller/IncomeController.java
+/home/luiz/projects/design-patterns-finance/LGCFinance/src/main/java/view/HomeView.java
+>>>>>>> b7e894dc726d83b20891f2c63b84120f0917e2f6

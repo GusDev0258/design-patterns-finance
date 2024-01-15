@@ -4,7 +4,9 @@
  */
 package view;
 
+import dto.TransactionDTO;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
 import javax.swing.JButton;
 import view.interfaces.ViewInterface;
 
@@ -194,6 +196,7 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     private javax.swing.JTextField txtValue;
     // End of variables declaration//GEN-END:variables
 
+    
     @Override
     public void addBtnAction(JButton btn, ActionListener action) {
         btn.addActionListener(action);
@@ -236,4 +239,16 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         return this.taDescription.getText();
     }
     
+    public TransactionDTO getTransaction() {
+        var transaction = new TransactionDTO();
+        transaction.setAuthor(String.valueOf(this.cbAuthor.getSelectedItem()));
+        transaction.setCategory(String.valueOf(this.cbCategory.getSelectedItem()));
+        transaction.setDate(LocalDate.MAX);
+        transaction.setName(this.txtName.getText());
+        transaction.setDescription(this.taDescription.getText());
+        transaction.setOrigin(this.txtOrigin.getText());
+        transaction.setValue(Double.valueOf(this.txtValue.getText()));
+        
+        return transaction;
+    }
 }
