@@ -108,11 +108,9 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface {
     }
 
     public void loadTable(List<Transaction> transactions) {
-        // Limpe o modelo antes de recarregar os dados
         tableModel.setRowCount(0);
 
         for (Transaction transaction : transactions) {
-            // Adicione uma nova linha ao modelo
             tableModel.addRow(new Object[]{
                 transaction.getName(),
                 transaction.getValue(),
@@ -124,52 +122,6 @@ public class HistoryView extends javax.swing.JFrame implements ViewInterface {
             });
         }
     }
-//    public void loadTable(List<Transaction> transactions) {
-//        for (int currentLine = 0; currentLine < transactions.size(); currentLine++) {
-//            setNameColumn(transactions.get(currentLine).getName(), currentLine);
-//            setValueColumn(transactions.get(currentLine).getValue(), currentLine);
-//            setCategoryColumn(transactions.get(currentLine).getCategory().getName(), currentLine);
-//            setDateColumn(transactions.get(currentLine).getDate(), currentLine);
-//            setOriginColumn(transactions.get(currentLine).getOrigin(), currentLine);
-//            setAuthorColumn(transactions.get(currentLine).getAuthor().getName(), currentLine);
-//            setDescriptionColumn(transactions.get(currentLine).getDescription(), currentLine);
-//        }
-//    }
-//
-//    private void setNameColumn(Object value, int currentRow) {
-//        byte nameColumn = 0;
-//        tbTransaction.setValueAt(value, currentRow, nameColumn);
-//    }
-//
-//    private void setValueColumn(Object value, int currentRow) {
-//        byte valueColumn = 1;
-//        tbTransaction.setValueAt(value, currentRow, valueColumn);
-//    }
-//
-//    private void setCategoryColumn(Object value, int currentRow) {
-//        byte categoryColumn = 2;
-//        tbTransaction.setValueAt(value, currentRow, categoryColumn);
-//    }
-//
-//    private void setDateColumn(Object value, int currentRow) {
-//        byte dateColumn = 3;
-//        tbTransaction.setValueAt(value, currentRow, dateColumn);
-//    }
-//
-//    private void setOriginColumn(Object value, int currentRow) {
-//        byte originColumn = 4;
-//        tbTransaction.setValueAt(value, currentRow, originColumn);
-//    }
-//
-//    private void setAuthorColumn(Object value, int currentRow) {
-//        byte authorColumn = 5;
-//        tbTransaction.setValueAt(value, currentRow, authorColumn);
-//    }
-//
-//    private void setDescriptionColumn(Object value, int currentRow) {
-//        byte descriptionColumn = 6;
-//        tbTransaction.setValueAt(value, currentRow, descriptionColumn);
-//    }
 
     public JMenuItem getUndoMenuItem() {
         return this.miUndoLastTransaction;
