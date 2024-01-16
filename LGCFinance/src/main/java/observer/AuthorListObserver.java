@@ -12,5 +12,5 @@ import model.Author;
  * @author sonho
  */
 public interface AuthorListObserver {
-    public void update(List<Author> authors);
+    public void updateAuthorList(List<Author> authors);
 }

@@ -4,11 +4,12 @@
  */
 package observer;
 
-import dto.TransactionDTO;
+import model.Transaction;
 /**
  *
  * @author sonho
  */
 public interface Observer {
-    public void update(TransactionDTO transaction);
+    public void update(Transaction transaction);
+    public void updateRemoved(Transaction transaction);
 }

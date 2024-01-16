@@ -6,12 +6,9 @@ package com.lgc.lgcfinance;
 
 import controller.AuthorController;
 import controller.CategoryController;
-import controller.ExpenditureController;
 import controller.HistoryController;
 import controller.HomeController;
-import controller.IncomeController;
-import controller.interfaces.ControllerInterface;
-import model.Author;
+import controller.TransactionController;
 import observer.Transactions;
 import repository.AuthorRepository;
 import repository.CategoryRepository;
@@ -27,15 +24,14 @@ public class LGCFinance {
         
         var authorRepository = AuthorRepository.getInstance();
         var categoryRepository = CategoryRepository.getInstance();
-        ControllerInterface categoryController = new CategoryController(categoryRepository);
-        ControllerInterface authorController = new AuthorController(authorRepository);
-        ControllerInterface incomeController = new IncomeController();
+        CategoryController categoryController = new CategoryController(categoryRepository);
+        AuthorController authorController = new AuthorController(authorRepository);
+        TransactionController incomeController = new TransactionController();
         var historyController = new HistoryController();
-        ControllerInterface expenditureController = new ExpenditureController();
      
         Transactions.addObserver(historyController);
 
-        ControllerInterface homeController = new HomeController(incomeController, historyController, expenditureController, authorController, categoryController);
+        HomeController homeController = new HomeController(incomeController, historyController, authorController, categoryController);
         homeController.openView();
     }
 }

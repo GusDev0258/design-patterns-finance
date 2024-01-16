@@ -34,7 +34,7 @@ public class Income implements Transaction{
     public Long getId() {
         return id;
     }
-
+    @Override
     public void setId(Long id) {
         this.id = id;
     }
@@ -43,7 +43,7 @@ public class Income implements Transaction{
     public String getName() {
         return name;
     }
-
+    @Override
     public void setName(String name) {
         this.name = name;
     }
@@ -52,7 +52,7 @@ public class Income implements Transaction{
     public Double getValue() {
         return value;
     }
-
+    @Override
     public void setValue(Double value) {
         this.value = value;
     }
@@ -61,7 +61,7 @@ public class Income implements Transaction{
     public LocalDate getDate() {
         return date;
     }
-
+    @Override
     public void setDate(LocalDate date) {
         this.date = date;
     }
@@ -70,7 +70,7 @@ public class Income implements Transaction{
     public String getDescription() {
         return description;
     }
-
+    @Override
     public void setDescription(String description) {
         this.description = description;
     }
@@ -79,7 +79,7 @@ public class Income implements Transaction{
     public String getOrigin() {
         return origin;
     }
-
+    @Override
     public void setOrigin(String origin) {
         this.origin = origin;
     }
@@ -93,7 +93,7 @@ public class Income implements Transaction{
     public Category getCategory() {
         return category;
     }
-
+    @Override
     public void setCategory(Category category) {
         this.category = category;
     }
@@ -102,7 +102,7 @@ public class Income implements Transaction{
     public Author getAuthor() {
         return author;
     }
-
+    @Override
     public void setAuthor(Author author) {
         this.author = author;
     }

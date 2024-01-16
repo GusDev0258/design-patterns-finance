@@ -8,7 +8,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 import observer.Observer;
-import dto.TransactionDTO;
 
 /**
  *
@@ -67,7 +66,7 @@ public class Author {
         this.balance = balance;
     }
     
-    private void notifyObservers(TransactionDTO transaction) {
+    private void notifyObservers(Transaction transaction) {
         for (Observer observer: observers) {
             observer.update(transaction);
         }

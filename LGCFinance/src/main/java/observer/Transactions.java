@@ -5,7 +5,7 @@
 package observer;
 
 import java.util.List;
-import dto.TransactionDTO;
+import model.Transaction;
 import java.util.ArrayList;
 
 /**
@@ -13,21 +13,27 @@ import java.util.ArrayList;
  * @author luiz
  */
 public abstract class Transactions {
-    private static List<Observer> observers = new ArrayList<>(); 
-    
+
+    private static List<Observer> observers = new ArrayList<>();
+
     public static void addObserver(Observer observer) {
         observers.add(observer);
     }
-    
+
     public static void removeObserver(Observer observer) {
         observers.remove(observer);
     }
-    
-    public void notify(TransactionDTO payment) {
+
+    public void notify(Transaction payment) {
         for (int i = 0; i < observers.size(); i++) {
             observers.get(i).update(payment);
         }
     }
-    
-    
+
+    public void notifyUndo(Transaction payment) {
+        for (int i = 0; i < observers.size(); i++) {
+            observers.get(i).updateRemoved(payment);
+        }
+    }
+
 }

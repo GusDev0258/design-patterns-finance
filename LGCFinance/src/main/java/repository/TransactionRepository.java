@@ -47,6 +47,7 @@ public class TransactionRepository {
         var transactionFound = this.findById(id);
         if(transactionFound != null) {
             transactions.remove(transactionFound);
+            System.out.println(transactionFound.getName() + "deletei");
         } else {
             System.out.println("Transação não encontrada");
         }

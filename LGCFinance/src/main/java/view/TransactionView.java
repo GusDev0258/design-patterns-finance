@@ -4,9 +4,7 @@
  */
 package view;
 
-import dto.TransactionDTO;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
 import model.Author;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,12 +15,12 @@ import model.Category;
  *
  * @author sonho
  */
-public class IncomeView extends javax.swing.JFrame implements ViewInterface{
+public class TransactionView extends javax.swing.JFrame implements ViewInterface{
 
     /**
      * Creates new form TelaAdicionarDespesa
      */
-    public IncomeView() {
+    public TransactionView() {
         initComponents();
     }
 
@@ -36,6 +34,7 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
     private void initComponents() {
 
         jComboBox1 = new javax.swing.JComboBox<>();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         txtValue = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         btnAddIncome = new javax.swing.JButton();
@@ -53,13 +52,15 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         taDescription = new javax.swing.JTextArea();
         cbCategory = new javax.swing.JComboBox<>();
         cbAuthor = new javax.swing.JComboBox<>();
+        chbIncome = new javax.swing.JCheckBox();
+        chbExpense = new javax.swing.JCheckBox();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Adicionar ganho");
+        jLabel1.setText("Adicionar transação");
 
         btnAddIncome.setText("ADICIONAR");
         btnAddIncome.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +93,12 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         taDescription.setRows(5);
         jScrollPane1.setViewportView(taDescription);
 
+        buttonGroup1.add(chbIncome);
+        chbIncome.setText("Entrada");
+
+        buttonGroup1.add(chbExpense);
+        chbExpense.setText("Saída");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,28 +107,31 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(111, 111, 111))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(105, 105, 105))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(61, 61, 61)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jScrollPane1)
-                            .addComponent(txtOrigin)
-                            .addComponent(txtDate)
-                            .addComponent(txtValue)
-                            .addComponent(txtName)
-                            .addComponent(cbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(cbAuthor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(chbIncome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(chbExpense))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jScrollPane1)
+                    .addComponent(txtOrigin)
+                    .addComponent(txtDate)
+                    .addComponent(txtValue)
+                    .addComponent(txtName)
+                    .addComponent(cbCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbAuthor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(64, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -156,8 +166,12 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chbIncome)
+                    .addComponent(chbExpense))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(btnAddIncome)
                 .addGap(16, 16, 16))
         );
@@ -176,8 +190,11 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddIncome;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<Author> cbAuthor;
     private javax.swing.JComboBox<Category> cbCategory;
+    private javax.swing.JCheckBox chbExpense;
+    private javax.swing.JCheckBox chbIncome;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -206,15 +223,15 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         this.setVisible(true);
     }
     
-    public JButton getAddIncomeButton() {
+    public JButton getAddTransactionButton() {
         return this.btnAddIncome;
     }
     
-    public String getIncomeName() {
+    public String getTransactionName() {
         return this.txtName.getText();
     }
     
-    public Double getIncomeValue() {
+    public Double getTransactionValue() {
         return Double.valueOf(this.txtValue.getText());
     }
     
@@ -246,16 +263,24 @@ public class IncomeView extends javax.swing.JFrame implements ViewInterface{
         return this.cbCategory;
     }
     
-    public TransactionDTO getTransaction() {
-        var transaction = new TransactionDTO();
-        transaction.setAuthor(getAuthor().getName());
-        transaction.setCategory(getCategory().getName());
-        transaction.setDate(LocalDate.parse(getDate()));
-        transaction.setName(getIncomeName());
-        transaction.setDescription(getDescription());
-        transaction.setOrigin(getOrigin());
-        transaction.setValue(getIncomeValue());
-        
-        return transaction;
+    public Boolean isIncome() {
+        return this.chbIncome.isSelected();
     }
+    
+    public Boolean isExpense() {
+        return this.chbExpense.isSelected();
+    }
+    
+//    public TransactionDTO getTransaction() {
+//        var transaction = new TransactionDTO();
+//        transaction.setAuthor(getAuthor().getName());
+//        transaction.setCategory(getCategory().getName());
+//        transaction.setDate(LocalDate.parse(getDate()));
+//        transaction.setName(getTransactionName());
+//        transaction.setDescription(getDescription());
+//        transaction.setOrigin(getOrigin());
+//        transaction.setValue(getTransactionValue());
+//        
+//        return transaction;
+//    }
 }

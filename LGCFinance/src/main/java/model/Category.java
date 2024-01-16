@@ -42,5 +42,9 @@ public class Category {
         this.payments = payments;
     }
     
+    @Override
+    public String toString() {
+        return this.getName();
+    }
     
 }

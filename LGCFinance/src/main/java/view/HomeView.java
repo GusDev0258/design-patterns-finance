@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import view.interfaces.ViewInterface;
 import observer.Observer;
-import dto.TransactionDTO;
+import model.Transaction;
 
 /**
  *
@@ -32,7 +32,6 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnAddExpenditure = new javax.swing.JButton();
         btnAddIncome = new javax.swing.JButton();
         lbCurrentBalance = new javax.swing.JLabel();
         btnHistory = new javax.swing.JButton();
@@ -41,9 +40,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btnAddExpenditure.setText("Adicionar despesa");
-
-        btnAddIncome.setText("Adicionar ganho");
+        btnAddIncome.setText("Adicionar transação");
 
         lbCurrentBalance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbCurrentBalance.setText("Saldo: R$ 1900");
@@ -82,7 +79,6 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
                         .addGap(108, 108, 108)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddExpenditure, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -93,9 +89,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
             .addGroup(layout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(lbCurrentBalance)
-                .addGap(44, 44, 44)
-                .addComponent(btnAddExpenditure)
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(btnAddIncome)
                 .addGap(18, 18, 18)
                 .addComponent(btnHistory)
@@ -103,7 +97,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
                 .addComponent(btnAddCategory)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddUser)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
@@ -124,7 +118,6 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddCategory;
-    private javax.swing.JButton btnAddExpenditure;
     private javax.swing.JButton btnAddIncome;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnHistory;
@@ -138,10 +131,6 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
     
     public JButton getBtnIncome() {
         return this.btnAddIncome;
-    }
-    
-    public JButton getBtnExpenditure() {
-        return this.btnAddExpenditure;
     }
     
     public JButton getBtnHistory() {
@@ -162,7 +151,13 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
     }
     
     @Override
-    public void update(TransactionDTO transaction) {
+    public void update(Transaction transaction) {
         this.lbCurrentBalance.setText("Saldo: R$" + transaction.getValue().toString());
     }
+
+    @Override
+    public void updateRemoved(Transaction transaction) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
 }

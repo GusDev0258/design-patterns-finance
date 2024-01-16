@@ -17,8 +17,8 @@ import observer.AuthorListObserver;
 public class AuthorRepository {
     
     private static final AuthorRepository instance = new AuthorRepository();
-    private List<AuthorListObserver> observers = new ArrayList<>();
     
+    private List<AuthorListObserver> observers = new ArrayList<>();
     
     private List<Author> authors = new ArrayList<>();
     
@@ -30,8 +30,7 @@ public class AuthorRepository {
     
     public List<Author> findAll() {
         return this.authors;
-    }
-    
+    }    
     
     public void saveAuthor(Author author) {
         var authorFound = this.findById(author.getId());
@@ -76,10 +75,10 @@ public class AuthorRepository {
         this.observers.add(observer);
     }
     
-    public void notifyObservers(List<Author> authors) {
+    public void notifyObservers(List<Author> authorList) {
         for(AuthorListObserver authorObserver : observers) {
             System.out.println("notified");
-            authorObserver.update(authors);
+            authorObserver.updateAuthorList(authorList);
         }
     }
     

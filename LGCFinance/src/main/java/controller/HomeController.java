@@ -5,7 +5,6 @@
 package controller;
 
 import controller.interfaces.ControllerInterface;
-import model.Author;
 import view.HomeView;
 
 /**
@@ -14,19 +13,18 @@ import view.HomeView;
  */
 public class HomeController implements ControllerInterface{
     HomeView homeView;
-    ControllerInterface incomeController; 
-    ControllerInterface historyController; 
-    ControllerInterface expenditureController;
-    ControllerInterface authorController;
-    ControllerInterface categoryController;
+    TransactionController transactionController; 
+    HistoryController historyController; 
+    AuthorController authorController;
+    CategoryController categoryController;
     
-    public HomeController(ControllerInterface incomeController, ControllerInterface historyController, ControllerInterface expenditureController, ControllerInterface authorController, ControllerInterface categoryController) {
+    public HomeController(TransactionController transactionController, HistoryController historyController, AuthorController authorController, CategoryController categoryController) {
         this.homeView = new HomeView();
-        this.incomeController = incomeController;
+        this.transactionController = transactionController;
         this.historyController = historyController;
-        this.expenditureController = expenditureController;
         this.authorController = authorController;
         this.categoryController = categoryController;
+        this.transactionController.setHistoryView(this.historyController.getHistoryView());
         this.initHomeButtons();
     }
     
@@ -36,15 +34,11 @@ public class HomeController implements ControllerInterface{
     }
     
     public void openIncomeView() {
-        this.homeView.addBtnAction(this.homeView.getBtnIncome(),e -> this.incomeController.openView());
+        this.homeView.addBtnAction(this.homeView.getBtnIncome(),e -> this.transactionController.openView());
     }
     
     public void openHistoryView() {
         this.homeView.addBtnAction(this.homeView.getBtnHistory(), e -> this.historyController.openView());
-    }
-    
-    public void openExpenditureView() {
-        this.homeView.addBtnAction(this.homeView.getBtnExpenditure(), e -> this.expenditureController.openView());
     }
     
     public void openAuthorView() {
@@ -58,7 +52,6 @@ public class HomeController implements ControllerInterface{
     public void initHomeButtons() {
         this.openIncomeView();
         this.openHistoryView();
-        this.openExpenditureView();
         this.openAuthorView();
         this.openCategoryView();
     }

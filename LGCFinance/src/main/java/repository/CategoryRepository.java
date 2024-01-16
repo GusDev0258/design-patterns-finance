@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import model.Category;
+import observer.CategoryListObserver;
 
 /**
  *
@@ -18,6 +19,8 @@ public class CategoryRepository {
     private static final CategoryRepository instance = new CategoryRepository();
     
     private List<Category> categories = new ArrayList<>();
+    
+    private List<CategoryListObserver> observers = new ArrayList<>();
     
     private CategoryRepository(){};
     
@@ -34,11 +37,13 @@ public class CategoryRepository {
         var categoryFound = this.findById(category.getId());
         if(categoryFound == null) {
             categories.add(category);
+            this.notifyObservers(categories);
             System.out.println("Categoria salva com sucesso!");
         } else {
-            categories.remove(category);
+            categories.remove(categoryFound);
             categoryFound.setName(category.getName());
-            categories.add(category);
+            categories.add(categoryFound);
+            this.notifyObservers(categories);
             System.out.println("Categoria atualizada!");
         }
     }
@@ -47,6 +52,7 @@ public class CategoryRepository {
         var categoryFound = this.findById(id);
         if(categoryFound != null) {
             categories.remove(categoryFound);
+            this.notifyObservers(categories);
         } else {
             System.out.println("Categoria não encontrada");
         }
@@ -59,6 +65,21 @@ public class CategoryRepository {
             }
         }
         return null;
+    }
+    
+    public void addObserver(CategoryListObserver observer) { 
+        this.observers.add(observer);
+    }
+    
+    public void removeObserver(CategoryListObserver observer) {
+        this.observers.add(observer);
+    }
+    
+    public void notifyObservers(List<Category> categoryList) {
+        for(CategoryListObserver categoryObserver : observers) {
+            System.out.println("notified");
+            categoryObserver.updateCategoryList(categoryList);
+        }
     }
     
 }

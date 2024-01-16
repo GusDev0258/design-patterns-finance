@@ -5,10 +5,8 @@
 package view;
 
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
 import javax.swing.JButton;
 import view.interfaces.ViewInterface;
-import dto.TransactionDTO;
 /**
  *
  * @author sonho
@@ -75,10 +73,6 @@ public class ExpenditureView extends javax.swing.JFrame implements ViewInterface
         txtAreaDescription.setColumns(20);
         txtAreaDescription.setRows(5);
         jScrollPane1.setViewportView(txtAreaDescription);
-
-        cbAuthor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        cbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -192,11 +186,11 @@ public class ExpenditureView extends javax.swing.JFrame implements ViewInterface
         this.setVisible(true);
     }
     
-    public String getIncomeName() {
+    public String getExpenseName() {
         return this.txtName.getText();
     }
     
-    public Double getIncomeValue() {
+    public Double getExpenseValue() {
         return Double.valueOf(this.txtValue.getText());
     }
     
@@ -220,16 +214,16 @@ public class ExpenditureView extends javax.swing.JFrame implements ViewInterface
         return this.txtAreaDescription.getText();
     }
     
-    public TransactionDTO getTransaction() {
-        var transaction = new TransactionDTO();
-        transaction.setAuthor(getAuthor());
-        transaction.setCategory(getCategory());
-        transaction.setDate(LocalDate.parse(getDate()));
-        transaction.setName(getIncomeName());
-        transaction.setDescription(getDescription());
-        transaction.setOrigin(getOrigin());
-        transaction.setValue(getIncomeValue());
-        
-        return transaction;
-    }
+//    public TransactionDTO getTransaction() {
+//        var transaction = new TransactionDTO();
+//        transaction.setAuthor(getAuthor());
+//        transaction.setCategory(getCategory());
+//        transaction.setDate(LocalDate.parse(getDate()));
+//        transaction.setName(getIncomeName());
+//        transaction.setDescription(getDescription());
+//        transaction.setOrigin(getOrigin());
+//        transaction.setValue(getIncomeValue());
+//        
+//        return transaction;
+//    }
 }

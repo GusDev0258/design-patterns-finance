@@ -16,7 +16,7 @@ import model.Transaction;
  */
 public interface TransactionFactory {
     
-    public final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("d/MM/yyyy");
+    public final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
     Transaction createTransaction(String name, Double value, String date, String origin, Category category, Author author, String description);
     
