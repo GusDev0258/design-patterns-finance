@@ -105,7 +105,7 @@ public class TransactionController extends Transactions implements ControllerInt
 
     public void undoTransaction() {
         try {
-            this.getHistoryView().AddMenuItemAction(this.getHistoryView().getUndoMenuItem(), e -> this.transactionInvoker.undoLastCommand());
+            this.getHistoryView().addMenuItemAction(this.getHistoryView().getUndoMenuItem(), e -> this.transactionInvoker.undoLastCommand());
         } catch (Exception error) {
             System.out.println(error.getMessage());
         }
