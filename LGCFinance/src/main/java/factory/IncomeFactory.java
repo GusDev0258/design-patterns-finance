@@ -4,8 +4,6 @@
  */
 package factory;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import model.Author;
 import model.Category;
 import model.Income;
