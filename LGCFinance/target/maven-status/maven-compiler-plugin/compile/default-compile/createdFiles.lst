@@ -1,5 +1,4 @@
 controller\HomeController.class
-dto\TransactionDTO.class
 controller\AuthorController.class
 observer\AuthorListObserver.class
 abstractFactory\ExportCSVFactory.class
@@ -38,7 +37,6 @@ view\AuthorView.class
 observer\Observer.class
 command\transaction\TransactionInvoker.class
 observer\Transactions.class
-data\DataBase.class
 view\CategoryView$1.class
 view\ExpenditureView.class
 factory\TransactionFactory.class
@@ -47,7 +45,6 @@ repository\TransactionRepository.class
 model\Expense.class
 abstractFactory\ExportFactoryUtil.class
 controller\TransactionController.class
-facade\HistoryTableFacade.class
 repository\CategoryRepository.class
 factory\ExpenseFactory.class
 view\HomeView$2.class

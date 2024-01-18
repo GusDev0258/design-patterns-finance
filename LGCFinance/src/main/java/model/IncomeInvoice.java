@@ -2,22 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package facade;
-
-import javax.swing.JTable;
+package model;
 
 /**
  *
  * @author sonho
  */
-public class HistoryTableFacade {
-    JTable historyTable;
+public class IncomeInvoice extends Invoice{
     
-    public HistoryTableFacade(JTable historyTable){
-        this.historyTable = historyTable;
+    public IncomeInvoice(String code, Double value) {
+        super(20.0, code, value);
     }
     
-    public void loadTable() {
-        
-    }
 }

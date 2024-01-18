@@ -8,6 +8,8 @@ import model.Author;
 import model.Category;
 import model.Transaction;
 import model.Expense;
+import model.Invoice;
+import model.ExpenseInvoice;
 
 /**
  *
@@ -27,5 +29,10 @@ public class ExpenseFactory implements TransactionFactory{
         expense.setDescription(description);
         expense.setOrigin(origin);
         return expense;
+    }
+
+    @Override
+    public Invoice createInvoice(String code, Double value) {
+       return new ExpenseInvoice(code, value);
     }
 }

@@ -7,6 +7,8 @@ package factory;
 import model.Author;
 import model.Category;
 import model.Income;
+import model.Invoice;
+import model.IncomeInvoice;
 import model.Transaction;
 
 /**
@@ -27,5 +29,10 @@ public class IncomeFactory implements TransactionFactory{
         income.setDescription(description);
         income.setOrigin(origin);
         return income;
+    }
+
+    @Override
+    public Invoice createInvoice(String code, Double value) {
+       return new IncomeInvoice(code, value);
     }
 }

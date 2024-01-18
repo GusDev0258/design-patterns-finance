@@ -30,6 +30,8 @@ public class Expense implements Transaction{
     
     private Author author;
 
+    private Invoice invoice;
+    
     @Override
     public Long getId() {
         return id;
@@ -111,5 +113,15 @@ public class Expense implements Transaction{
     @Override
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    @Override
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    @Override
+    public Invoice getInvoice() {
+        return this.invoice;
     }
 }

@@ -38,6 +38,7 @@ public class IncomeCommand implements TransactionCommand {
                 this.transactionView.getAuthor(),
                 this.transactionView.getDescription()
         );
+        income.setInvoice(this.transactionController.getIncomeFactory().createInvoice("CODE0981", income.getValue()));
 
         this.transactionController.getTransactionRepository().saveTransaction(income);
         this.transactionController.notify(income);

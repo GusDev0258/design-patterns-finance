@@ -32,4 +32,6 @@ public interface Transaction {
     public void setDescription(String descrpition) ;
     public void setOrigin(String origin);
     public void setAuthor(Author author);
+    public void setInvoice(Invoice invoice);
+    public Invoice getInvoice();
 }

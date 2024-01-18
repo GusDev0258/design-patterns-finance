@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import model.Author;
 import model.Category;
+import model.Invoice;
 import model.Transaction;
 
 /**
@@ -19,6 +20,7 @@ public interface TransactionFactory {
     public final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
     Transaction createTransaction(String name, Double value, String date, String origin, Category category, Author author, String description);
+    Invoice createInvoice(String code, Double value);
     
     default Long generateId(String incomeName) {
         var nameCount = incomeName.length();
