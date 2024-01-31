@@ -22,9 +22,11 @@ abstractFactory\ExportCSV.class
 model\Category.class
 command\transaction\ExpenseCommand.class
 model\Income.class
+model\IncomeInvoice.class
 view\HomeView.class
 view\TransactionView.class
 view\ExpenditureView$1.class
+model\ExpenseInvoice.class
 view\TransactionView$1.class
 repository\AuthorRepository.class
 view\HomeView$3.class
@@ -39,6 +41,7 @@ command\transaction\TransactionInvoker.class
 observer\Transactions.class
 view\CategoryView$1.class
 view\ExpenditureView.class
+model\Invoice.class
 factory\TransactionFactory.class
 abstractFactory\ExportPDF.class
 repository\TransactionRepository.class
