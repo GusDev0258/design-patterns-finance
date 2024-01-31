@@ -120,7 +120,6 @@ public class TransactionController extends Transactions implements ControllerInt
         authorFound.setBalance(balance);
         authorRepository.saveAuthor(author);
         this.updateAuthorList(authorRepository.findAll());
-        //Observer notificar todos que vigiam o saldo da conta.
     }
 
     public void populateCbAuthor(List<Author> authors) {

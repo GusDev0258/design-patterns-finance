@@ -30,6 +30,8 @@ public class Income implements Transaction, Cloneable {
     
     private Author author;
 
+    private Invoice invoice;
+    
     @Override
     public Long getId() {
         return id;
@@ -116,4 +118,16 @@ public class Income implements Transaction, Cloneable {
         }
         
     }
+
+
+    @Override
+    public void setInvoice(Invoice invoice) {
+        this.invoice = invoice;
+    }
+
+    @Override
+    public Invoice getInvoice() {
+        return this.invoice;
+    }
+    
 }

@@ -38,7 +38,9 @@ public class ExpenseCommand implements TransactionCommand {
                 this.transactionView.getAuthor(),
                 this.transactionView.getDescription()
         );
-
+        
+        expense.setInvoice(this.transactionController.getExpenseFactory().createInvoice("CODE0981", expense.getValue()));
+        
         this.transactionController.getTransactionRepository().saveTransaction(expense);
         this.transactionController.notify(expense);
         this.transactionController.updateAuthorBalance(this.transactionView.getAuthor(), this.transactionView.getAuthor().getBalance() - this.transactionView.getTransactionValue());

@@ -5,6 +5,7 @@
 package controller;
 
 import controller.interfaces.ControllerInterface;
+import factory.CategoryFactory;
 import repository.CategoryRepository;
 import view.CategoryView;
 import model.Category;
@@ -17,19 +18,17 @@ public class CategoryController implements ControllerInterface{
     CategoryView categoryView;
     
     CategoryRepository categoryRepository;
+    CategoryFactory categoryFactory;
     
     public CategoryController(CategoryRepository categoryRepository) {
         this.categoryView = new CategoryView();
         this.categoryRepository = categoryRepository;
         this.initSaveCategoryButton();
+        this.categoryFactory = new CategoryFactory();
     }
     
     public void saveCategory() {
-        var category = new Category();
-        var randomId = Math.random() * 1000;
-        var id = String.valueOf(randomId).replace(".", "");
-        category.setId(Long.parseLong(id));
-        category.setName(this.categoryView.getCategoryName());
+        Category category = categoryFactory.create(this.categoryView.getCategoryName());
         categoryRepository.saveCategory(category);
     }
     

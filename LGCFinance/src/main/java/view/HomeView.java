@@ -7,14 +7,12 @@ package view;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import view.interfaces.ViewInterface;
-import observer.Observer;
-import model.Transaction;
 
 /**
  *
  * @author gustavoavelar
  */
-public class HomeView extends javax.swing.JFrame implements ViewInterface, Observer{
+public class HomeView extends javax.swing.JFrame implements ViewInterface{
     /**
      * Creates new form TelaInicio
      */
@@ -33,7 +31,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
     private void initComponents() {
 
         btnAddIncome = new javax.swing.JButton();
-        lbCurrentBalance = new javax.swing.JLabel();
+        lbTitle = new javax.swing.JLabel();
         btnHistory = new javax.swing.JButton();
         btnAddCategory = new javax.swing.JButton();
         btnAddUser = new javax.swing.JButton();
@@ -42,8 +40,8 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
 
         btnAddIncome.setText("Adicionar transação");
 
-        lbCurrentBalance.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        lbCurrentBalance.setText("Saldo: R$ 1900");
+        lbTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbTitle.setText("LGC FINANCE");
 
         btnHistory.setText("Histórico");
         btnHistory.addActionListener(new java.awt.event.ActionListener() {
@@ -73,23 +71,23 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(lbCurrentBalance))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(108, 108, 108)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnAddIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnAddCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(155, 155, 155)
+                        .addComponent(lbTitle)))
                 .addContainerGap(124, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(94, 94, 94)
-                .addComponent(lbCurrentBalance)
-                .addGap(52, 52, 52)
+                .addGap(93, 93, 93)
+                .addComponent(lbTitle)
+                .addGap(53, 53, 53)
                 .addComponent(btnAddIncome)
                 .addGap(18, 18, 18)
                 .addComponent(btnHistory)
@@ -121,7 +119,7 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
     private javax.swing.JButton btnAddIncome;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnHistory;
-    private javax.swing.JLabel lbCurrentBalance;
+    private javax.swing.JLabel lbTitle;
     // End of variables declaration//GEN-END:variables
         
     @Override
@@ -148,16 +146,6 @@ public class HomeView extends javax.swing.JFrame implements ViewInterface, Obser
     @Override
     public void showView() {
         this.setVisible(true);
-    }
-    
-    @Override
-    public void update(Transaction transaction) {
-        this.lbCurrentBalance.setText("Saldo: R$" + transaction.getValue().toString());
-    }
-
-    @Override
-    public void updateRemoved(Transaction transaction) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
 }

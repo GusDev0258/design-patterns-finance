@@ -5,6 +5,7 @@
 package controller;
 
 import controller.interfaces.ControllerInterface;
+import factory.AuthorFactory;
 import repository.AuthorRepository;
 import view.AuthorView;
 import model.Author;
@@ -17,20 +18,18 @@ public class AuthorController implements ControllerInterface{
     AuthorView authorView;
     
     AuthorRepository authorRepository;
-    
+    AuthorFactory authorFactory;
     public AuthorController(AuthorRepository authorRepository) {
         this.authorView = new AuthorView();
         this.authorRepository = authorRepository;
         this.initSaveAuthorButton();
+        this.authorFactory = new AuthorFactory();
     }
     
     public void saveAuthor() {
-        var author = new Author();
-        var randomId = Math.random() * 1000;
-        var id = String.valueOf(randomId).replace(".", "");
-        author.setId(Long.parseLong(id));
-        author.setBalance(Double.parseDouble(this.authorView.getAuthorBalance()));
-        author.setName(this.authorView.getAuthorName());
+        var authorBalance = Double.parseDouble(this.authorView.getAuthorBalance());
+        var authorName = this.authorView.getAuthorName();
+        Author author = authorFactory.create(authorName, authorBalance);
         authorRepository.saveAuthor(author);
     }
     
