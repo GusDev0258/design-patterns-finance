@@ -10,7 +10,7 @@ import java.time.LocalDate;
  *
  * @author sonho
  */
-public class Income implements Transaction{
+public class Income implements Transaction, Cloneable {
     
     private Long id;
     
@@ -105,8 +105,15 @@ public class Income implements Transaction{
     @Override
     public void setAuthor(Author author) {
         this.author = author;
+    }   
+    
+    public Income clonar()  {
+        try {
+            return (Income) clone();
+        }catch(Exception error) {
+            System.out.println("Couldn't clone" + error.getMessage());
+            return this;
+        }
+        
     }
-    
-    
-    
 }
