@@ -29,7 +29,8 @@ public class AuthorController implements ControllerInterface{
     public void saveAuthor() {
         var authorBalance = Double.parseDouble(this.authorView.getAuthorBalance());
         var authorName = this.authorView.getAuthorName();
-        Author author = authorFactory.create(authorName, authorBalance);
+        Author author = authorFactory.create(authorName);
+        author.setBalance(authorBalance);
         authorRepository.saveAuthor(author);
     }
     

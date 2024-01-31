@@ -4,6 +4,8 @@
  */
 package factory;
 
+import model.BaseModel;
+
 /**
  *
  * @author sonho
@@ -14,4 +16,6 @@ public interface ModelFactory {
         var id = String.valueOf(randomId).replace(".", "");
         return Long.parseLong(id);
     }
+    
+    public BaseModel create(String name);
 }

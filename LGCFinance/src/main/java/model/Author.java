@@ -14,7 +14,7 @@ import observer.Observer;
  * @author gustavoavelar
  */
 
-public class Author {
+public class Author implements BaseModel {
     
     private List<Observer> observers = new ArrayList<>();
     

@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author gustavoavelar
  */
-public class Category {
+public class Category implements BaseModel {
 
     private Long id;
     

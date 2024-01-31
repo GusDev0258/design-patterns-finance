@@ -12,10 +12,9 @@ import model.Author;
  */
 public class AuthorFactory implements ModelFactory {
 
-    public Author create(String name, Double balance) {
+    public Author create(String name) {
         var author = new Author();
         author.setId(this.generateId());
-        author.setBalance(balance);
         author.setName(name);
         return author;
     }

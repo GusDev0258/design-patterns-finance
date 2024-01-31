@@ -35,5 +35,4 @@ public abstract class Transactions {
             observers.get(i).updateRemoved(payment);
         }
     }
-
 }
